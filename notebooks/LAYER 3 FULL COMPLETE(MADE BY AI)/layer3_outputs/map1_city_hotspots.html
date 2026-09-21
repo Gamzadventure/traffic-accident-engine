@@ -1,0 +1,3402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e2b1fbedce4285be161cba414f9efa13 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style='position:fixed;bottom:30px;left:30px;z-index:1000;background:white;padding:12px;border-radius:8px;border:2px solid #ccc;font-family:Arial;font-size:13px'><b>City Risk Score</b><br><span style='color:#c62828'>&#9679;</span> Extreme (75-100)<br><span style='color:#e65100'>&#9679;</span> High (50-74)<br><span style='color:#f9a825'>&#9679;</span> Medium (25-49)<br><span style='color:#2e7d32'>&#9679;</span> Low (0-24)<br><small>Circle size = risk level<br>Click city for details</small></div>
+    
+            <div class="folium-map" id="map_e2b1fbedce4285be161cba414f9efa13" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e2b1fbedce4285be161cba414f9efa13 = L.map(
+                "map_e2b1fbedce4285be161cba414f9efa13",
+                {
+                    center: [20.5937, 78.9629],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7cd405698fbd486a9ad7b73bea181f04 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7cd405698fbd486a9ad7b73bea181f04.addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+            var circle_marker_f38e79e8fac669f0e117dfd82db34e10 = L.circleMarker(
+                [28.6139, 77.209],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.77909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_8084273dc5034a34d49806a94a2a6531 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a1928d3f325fad2ac9a34b9e1b3288e0 = $(`<div id="html_a1928d3f325fad2ac9a34b9e1b3288e0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Agra</h4><hr style='margin:4px 0'><b>Risk Score:</b> 30.6/100 (Medium)<br><b>Deaths 2022:</b> 548<br><b>Accidents 2022:</b> 1,029<br><b>Injured 2022:</b> 795<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_8084273dc5034a34d49806a94a2a6531.setContent(html_a1928d3f325fad2ac9a34b9e1b3288e0);
+            
+        
+
+        circle_marker_f38e79e8fac669f0e117dfd82db34e10.bindPopup(popup_8084273dc5034a34d49806a94a2a6531)
+        ;
+
+        
+    
+    
+            circle_marker_f38e79e8fac669f0e117dfd82db34e10.bindTooltip(
+                `<div>
+                     Agra | Risk: 30.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0204ac0c07789ab47d0d77fc86436eb2 = L.circleMarker(
+                [23.0225, 72.5714],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.544545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_e2df7f755fdc286b0a297212c1462ea7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_956eb12cb4596daaaf5e77ae55c2ea33 = $(`<div id="html_956eb12cb4596daaaf5e77ae55c2ea33" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Ahmedabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 28.0/100 (Medium)<br><b>Deaths 2022:</b> 488<br><b>Accidents 2022:</b> 1,711<br><b>Injured 2022:</b> 1,305<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_e2df7f755fdc286b0a297212c1462ea7.setContent(html_956eb12cb4596daaaf5e77ae55c2ea33);
+            
+        
+
+        circle_marker_0204ac0c07789ab47d0d77fc86436eb2.bindPopup(popup_e2df7f755fdc286b0a297212c1462ea7)
+        ;
+
+        
+    
+    
+            circle_marker_0204ac0c07789ab47d0d77fc86436eb2.bindTooltip(
+                `<div>
+                     Ahmedabad | Risk: 28.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1db3e3999b33b6f6460de545cdff6e61 = L.circleMarker(
+                [25.4358, 81.8463],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.662727272727272, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_3881107bdef58e8b8f6d577d5413f2d0 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_109e2f610cd103e4330fe893a56338ab = $(`<div id="html_109e2f610cd103e4330fe893a56338ab" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Prayagraj</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.3/100 (Medium)<br><b>Deaths 2022:</b> 603<br><b>Accidents 2022:</b> 1,370<br><b>Injured 2022:</b> 886<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_3881107bdef58e8b8f6d577d5413f2d0.setContent(html_109e2f610cd103e4330fe893a56338ab);
+            
+        
+
+        circle_marker_1db3e3999b33b6f6460de545cdff6e61.bindPopup(popup_3881107bdef58e8b8f6d577d5413f2d0)
+        ;
+
+        
+    
+    
+            circle_marker_1db3e3999b33b6f6460de545cdff6e61.bindTooltip(
+                `<div>
+                     Prayagraj | Risk: 29.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ee555fb8d68630319b49603aaca026d = L.circleMarker(
+                [31.634, 74.8723],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.639090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_6f10258f0b97164964e77f1fbed19104 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a6823eeffce215a59ba5c7a340c17a54 = $(`<div id="html_a6823eeffce215a59ba5c7a340c17a54" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Amritsar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 7.0/100 (Low)<br><b>Deaths 2022:</b> 82<br><b>Accidents 2022:</b> 117<br><b>Injured 2022:</b> 62<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_6f10258f0b97164964e77f1fbed19104.setContent(html_a6823eeffce215a59ba5c7a340c17a54);
+            
+        
+
+        circle_marker_6ee555fb8d68630319b49603aaca026d.bindPopup(popup_6f10258f0b97164964e77f1fbed19104)
+        ;
+
+        
+    
+    
+            circle_marker_6ee555fb8d68630319b49603aaca026d.bindTooltip(
+                `<div>
+                     Amritsar | Risk: 7.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d416a4a9ff08f3db67e740435d39cb21 = L.circleMarker(
+                [23.6833, 86.9667],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.518181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_3e4441d155dca7779dfd997b9988de60 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a128345a94d6fbb23aba861d60b0bc7d = $(`<div id="html_a128345a94d6fbb23aba861d60b0bc7d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Asansol Durgapur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.7/100 (Low)<br><b>Deaths 2022:</b> 359<br><b>Accidents 2022:</b> 494<br><b>Injured 2022:</b> 309<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_3e4441d155dca7779dfd997b9988de60.setContent(html_a128345a94d6fbb23aba861d60b0bc7d);
+            
+        
+
+        circle_marker_d416a4a9ff08f3db67e740435d39cb21.bindPopup(popup_3e4441d155dca7779dfd997b9988de60)
+        ;
+
+        
+    
+    
+            circle_marker_d416a4a9ff08f3db67e740435d39cb21.bindTooltip(
+                `<div>
+                     Asansol Durgapur | Risk: 16.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_990d12dc4db2b457ecac85be95343804 = L.circleMarker(
+                [19.8762, 75.3433],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b6511bf1d69dd729ac613c7656b69f80 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_b8f143cda0dd31e1f134b70ef73e25ff = $(`<div id="html_b8f143cda0dd31e1f134b70ef73e25ff" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Aurangabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 11.0/100 (Low)<br><b>Deaths 2022:</b> 199<br><b>Accidents 2022:</b> 528<br><b>Injured 2022:</b> 370<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_b6511bf1d69dd729ac613c7656b69f80.setContent(html_b8f143cda0dd31e1f134b70ef73e25ff);
+            
+        
+
+        circle_marker_990d12dc4db2b457ecac85be95343804.bindPopup(popup_b6511bf1d69dd729ac613c7656b69f80)
+        ;
+
+        
+    
+    
+            circle_marker_990d12dc4db2b457ecac85be95343804.bindTooltip(
+                `<div>
+                     Aurangabad | Risk: 11.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3aa19067d3b487073e25985d09da6e7 = L.circleMarker(
+                [12.9716, 77.5946],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e65100", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.91090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_04047b5c2e95a1baddd638dec6253a0a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_bec0884b605bb61e4524a312417e50e4 = $(`<div id="html_bec0884b605bb61e4524a312417e50e4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#e65100'>Bengaluru</h4><hr style='margin:4px 0'><b>Risk Score:</b> 54.0/100 (High)<br><b>Deaths 2022:</b> 772<br><b>Accidents 2022:</b> 3,822<br><b>Injured 2022:</b> 3,189<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_04047b5c2e95a1baddd638dec6253a0a.setContent(html_bec0884b605bb61e4524a312417e50e4);
+            
+        
+
+        circle_marker_d3aa19067d3b487073e25985d09da6e7.bindPopup(popup_04047b5c2e95a1baddd638dec6253a0a)
+        ;
+
+        
+    
+    
+            circle_marker_d3aa19067d3b487073e25985d09da6e7.bindTooltip(
+                `<div>
+                     Bengaluru | Risk: 54.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_037b5d8f658ca0b48a6d4fa6e1a48c93 = L.circleMarker(
+                [23.2599, 77.4126],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.25909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_d90fb5b45276fafda5df8d6e02d7214a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d70de827c1e3683d258c149c414344bb = $(`<div id="html_d70de827c1e3683d258c149c414344bb" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Bhopal</h4><hr style='margin:4px 0'><b>Risk Score:</b> 35.9/100 (Medium)<br><b>Deaths 2022:</b> 348<br><b>Accidents 2022:</b> 3,313<br><b>Injured 2022:</b> 2,645<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_d90fb5b45276fafda5df8d6e02d7214a.setContent(html_d70de827c1e3683d258c149c414344bb);
+            
+        
+
+        circle_marker_037b5d8f658ca0b48a6d4fa6e1a48c93.bindPopup(popup_d90fb5b45276fafda5df8d6e02d7214a)
+        ;
+
+        
+    
+    
+            circle_marker_037b5d8f658ca0b48a6d4fa6e1a48c93.bindTooltip(
+                `<div>
+                     Bhopal | Risk: 35.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_85f644dc96dc573e7cef4d7100bc6a97 = L.circleMarker(
+                [30.7333, 76.7794],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.439090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_a9e5a39a5753af166f505780ec854b10 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d41af7b9c176d1b83724898f9e1ba974 = $(`<div id="html_d41af7b9c176d1b83724898f9e1ba974" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Chandigarh</h4><hr style='margin:4px 0'><b>Risk Score:</b> 4.8/100 (Low)<br><b>Deaths 2022:</b> 83<br><b>Accidents 2022:</b> 237<br><b>Injured 2022:</b> 203<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_a9e5a39a5753af166f505780ec854b10.setContent(html_d41af7b9c176d1b83724898f9e1ba974);
+            
+        
+
+        circle_marker_85f644dc96dc573e7cef4d7100bc6a97.bindPopup(popup_a9e5a39a5753af166f505780ec854b10)
+        ;
+
+        
+    
+    
+            circle_marker_85f644dc96dc573e7cef4d7100bc6a97.bindTooltip(
+                `<div>
+                     Chandigarh | Risk: 4.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b3d498b036d58e2f154c0dc2b988fec = L.circleMarker(
+                [13.0827, 80.2707],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.184545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_9c134f3582a2d22a12dc1b868501a95e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_60770839ceb46dd11e57cb36acabfb5b = $(`<div id="html_60770839ceb46dd11e57cb36acabfb5b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Chennai</h4><hr style='margin:4px 0'><b>Risk Score:</b> 46.0/100 (Medium)<br><b>Deaths 2022:</b> 507<br><b>Accidents 2022:</b> 3,452<br><b>Injured 2022:</b> 3,724<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_9c134f3582a2d22a12dc1b868501a95e.setContent(html_60770839ceb46dd11e57cb36acabfb5b);
+            
+        
+
+        circle_marker_7b3d498b036d58e2f154c0dc2b988fec.bindPopup(popup_9c134f3582a2d22a12dc1b868501a95e)
+        ;
+
+        
+    
+    
+            circle_marker_7b3d498b036d58e2f154c0dc2b988fec.bindTooltip(
+                `<div>
+                     Chennai | Risk: 46.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63e5f7678960259a63b6c5057ba3c165 = L.circleMarker(
+                [11.0168, 76.9558],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.518181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_6fcfcebf119ddb0df9e3b942e1a18483 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_933c7101b3074d903a057db08ccb70c5 = $(`<div id="html_933c7101b3074d903a057db08ccb70c5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Coimbatore</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.7/100 (Low)<br><b>Deaths 2022:</b> 272<br><b>Accidents 2022:</b> 1,085<br><b>Injured 2022:</b> 939<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_6fcfcebf119ddb0df9e3b942e1a18483.setContent(html_933c7101b3074d903a057db08ccb70c5);
+            
+        
+
+        circle_marker_63e5f7678960259a63b6c5057ba3c165.bindPopup(popup_6fcfcebf119ddb0df9e3b942e1a18483)
+        ;
+
+        
+    
+    
+            circle_marker_63e5f7678960259a63b6c5057ba3c165.bindTooltip(
+                `<div>
+                     Coimbatore | Risk: 16.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5f3db09483e983d8f3a17e941703759 = L.circleMarker(
+                [28.6139, 77.209],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c62828", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.357272727272727, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_3d22ae85b3cfd89d54f20778105b51e9 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_004ac5737c2730fd9afc0ffcca1dde57 = $(`<div id="html_004ac5737c2730fd9afc0ffcca1dde57" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#c62828'>Delhi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 91.9/100 (Extreme)<br><b>Deaths 2022:</b> 1,461<br><b>Accidents 2022:</b> 5,652<br><b>Injured 2022:</b> 5,201<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_3d22ae85b3cfd89d54f20778105b51e9.setContent(html_004ac5737c2730fd9afc0ffcca1dde57);
+            
+        
+
+        circle_marker_c5f3db09483e983d8f3a17e941703759.bindPopup(popup_3d22ae85b3cfd89d54f20778105b51e9)
+        ;
+
+        
+    
+    
+            circle_marker_c5f3db09483e983d8f3a17e941703759.bindTooltip(
+                `<div>
+                     Delhi | Risk: 91.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_190eefbb18d74f393846089331c466cc = L.circleMarker(
+                [23.7957, 86.4304],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.699090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_d7f5fec1c69c05493c5cb4fb5be63a5c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_74e5800690536d9868f5a835defa8b10 = $(`<div id="html_74e5800690536d9868f5a835defa8b10" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Dhanbad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 7.7/100 (Low)<br><b>Deaths 2022:</b> 114<br><b>Accidents 2022:</b> 179<br><b>Injured 2022:</b> 73<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_d7f5fec1c69c05493c5cb4fb5be63a5c.setContent(html_74e5800690536d9868f5a835defa8b10);
+            
+        
+
+        circle_marker_190eefbb18d74f393846089331c466cc.bindPopup(popup_d7f5fec1c69c05493c5cb4fb5be63a5c)
+        ;
+
+        
+    
+    
+            circle_marker_190eefbb18d74f393846089331c466cc.bindTooltip(
+                `<div>
+                     Dhanbad | Risk: 7.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1dce5e8994c03b8eb7280587e219e1fa = L.circleMarker(
+                [28.4089, 77.3178],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.283636363636363, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_28138d3b0297f6547e4932b16129730b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_803e5bb374fd11bffad50da5f57e5027 = $(`<div id="html_803e5bb374fd11bffad50da5f57e5027" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Faridabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 14.1/100 (Low)<br><b>Deaths 2022:</b> 263<br><b>Accidents 2022:</b> 594<br><b>Injured 2022:</b> 452<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_28138d3b0297f6547e4932b16129730b.setContent(html_803e5bb374fd11bffad50da5f57e5027);
+            
+        
+
+        circle_marker_1dce5e8994c03b8eb7280587e219e1fa.bindPopup(popup_28138d3b0297f6547e4932b16129730b)
+        ;
+
+        
+    
+    
+            circle_marker_1dce5e8994c03b8eb7280587e219e1fa.bindTooltip(
+                `<div>
+                     Faridabad | Risk: 14.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b00017ec11ae960f76b24d2a1f3771fc = L.circleMarker(
+                [28.6692, 77.4538],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.6899999999999995, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1a4dd34af95901e40be67d73d18f4ba3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_822b7e5f15b28071c03a7be15fe15c15 = $(`<div id="html_822b7e5f15b28071c03a7be15fe15c15" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Ghaziabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.6/100 (Low)<br><b>Deaths 2022:</b> 363<br><b>Accidents 2022:</b> 886<br><b>Injured 2022:</b> 638<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_1a4dd34af95901e40be67d73d18f4ba3.setContent(html_822b7e5f15b28071c03a7be15fe15c15);
+            
+        
+
+        circle_marker_b00017ec11ae960f76b24d2a1f3771fc.bindPopup(popup_1a4dd34af95901e40be67d73d18f4ba3)
+        ;
+
+        
+    
+    
+            circle_marker_b00017ec11ae960f76b24d2a1f3771fc.bindTooltip(
+                `<div>
+                     Ghaziabad | Risk: 18.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21048c1ae47580aa953e72f5565c96c6 = L.circleMarker(
+                [26.2183, 78.1828],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.291818181818183, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_eb6cf2e93ac7a61b14e96bf7a0f4a243 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_239e87675ec952b67f527e687fd4ef7d = $(`<div id="html_239e87675ec952b67f527e687fd4ef7d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Gwalior</h4><hr style='margin:4px 0'><b>Risk Score:</b> 25.2/100 (Medium)<br><b>Deaths 2022:</b> 353<br><b>Accidents 2022:</b> 2,057<br><b>Injured 2022:</b> 1,498<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_eb6cf2e93ac7a61b14e96bf7a0f4a243.setContent(html_239e87675ec952b67f527e687fd4ef7d);
+            
+        
+
+        circle_marker_21048c1ae47580aa953e72f5565c96c6.bindPopup(popup_eb6cf2e93ac7a61b14e96bf7a0f4a243)
+        ;
+
+        
+    
+    
+            circle_marker_21048c1ae47580aa953e72f5565c96c6.bindTooltip(
+                `<div>
+                     Gwalior | Risk: 25.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16916c4f26018afd70f039b1a3279482 = L.circleMarker(
+                [17.385, 78.4867],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.710909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_f72221a8ec1e8b734082022ea414e41a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_aa3142f40103b50c1690b853d1c43b89 = $(`<div id="html_aa3142f40103b50c1690b853d1c43b89" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Hyderabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.8/100 (Medium)<br><b>Deaths 2022:</b> 323<br><b>Accidents 2022:</b> 2,516<br><b>Injured 2022:</b> 2,252<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_f72221a8ec1e8b734082022ea414e41a.setContent(html_aa3142f40103b50c1690b853d1c43b89);
+            
+        
+
+        circle_marker_16916c4f26018afd70f039b1a3279482.bindPopup(popup_f72221a8ec1e8b734082022ea414e41a)
+        ;
+
+        
+    
+    
+            circle_marker_16916c4f26018afd70f039b1a3279482.bindTooltip(
+                `<div>
+                     Hyderabad | Risk: 29.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce6b69f682f787bff1cadb687b3de833 = L.circleMarker(
+                [22.7196, 75.8577],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e65100", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.161818181818182, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_e2429285bc94995f875fbacad305f4ba = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_857f4ea23429d81c35d6c2c00ec800c6 = $(`<div id="html_857f4ea23429d81c35d6c2c00ec800c6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#e65100'>Indore</h4><hr style='margin:4px 0'><b>Risk Score:</b> 56.8/100 (High)<br><b>Deaths 2022:</b> 639<br><b>Accidents 2022:</b> 4,680<br><b>Injured 2022:</b> 3,967<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_e2429285bc94995f875fbacad305f4ba.setContent(html_857f4ea23429d81c35d6c2c00ec800c6);
+            
+        
+
+        circle_marker_ce6b69f682f787bff1cadb687b3de833.bindPopup(popup_e2429285bc94995f875fbacad305f4ba)
+        ;
+
+        
+    
+    
+            circle_marker_ce6b69f682f787bff1cadb687b3de833.bindTooltip(
+                `<div>
+                     Indore | Risk: 56.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a9df1a612f65d56e3b3a28f71da7c4a = L.circleMarker(
+                [23.1815, 79.9864],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.501818181818182, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_ce9e0a888071ae13fc3fced855f59686 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_060c14048c17502cd99cb8455b7b2c12 = $(`<div id="html_060c14048c17502cd99cb8455b7b2c12" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Jabalpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 49.5/100 (Medium)<br><b>Deaths 2022:</b> 481<br><b>Accidents 2022:</b> 4,046<br><b>Injured 2022:</b> 4,181<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_ce9e0a888071ae13fc3fced855f59686.setContent(html_060c14048c17502cd99cb8455b7b2c12);
+            
+        
+
+        circle_marker_6a9df1a612f65d56e3b3a28f71da7c4a.bindPopup(popup_ce9e0a888071ae13fc3fced855f59686)
+        ;
+
+        
+    
+    
+            circle_marker_6a9df1a612f65d56e3b3a28f71da7c4a.bindTooltip(
+                `<div>
+                     Jabalpur | Risk: 49.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3037baf10946bc805a88e11d7689d59a = L.circleMarker(
+                [26.9124, 75.7873],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.045454545454547, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_0ee37ce6103b44eee4bc45ea1152ea78 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_721f8017458b5b5aa9804c77b15cf304 = $(`<div id="html_721f8017458b5b5aa9804c77b15cf304" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Jaipur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 44.5/100 (Medium)<br><b>Deaths 2022:</b> 765<br><b>Accidents 2022:</b> 2,687<br><b>Injured 2022:</b> 2,167<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_0ee37ce6103b44eee4bc45ea1152ea78.setContent(html_721f8017458b5b5aa9804c77b15cf304);
+            
+        
+
+        circle_marker_3037baf10946bc805a88e11d7689d59a.bindPopup(popup_0ee37ce6103b44eee4bc45ea1152ea78)
+        ;
+
+        
+    
+    
+            circle_marker_3037baf10946bc805a88e11d7689d59a.bindTooltip(
+                `<div>
+                     Jaipur | Risk: 44.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c25f55e27b755f33e661d37fecd9c38b = L.circleMarker(
+                [22.8046, 86.2029],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.386363636363637, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_bcea7b6e0e3b7fa8132355a3d08e0552 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_736fceb0697313f551bb774fa3099276 = $(`<div id="html_736fceb0697313f551bb774fa3099276" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Jamshedpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 4.2/100 (Low)<br><b>Deaths 2022:</b> 68<br><b>Accidents 2022:</b> 167<br><b>Injured 2022:</b> 115<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_bcea7b6e0e3b7fa8132355a3d08e0552.setContent(html_736fceb0697313f551bb774fa3099276);
+            
+        
+
+        circle_marker_c25f55e27b755f33e661d37fecd9c38b.bindPopup(popup_bcea7b6e0e3b7fa8132355a3d08e0552)
+        ;
+
+        
+    
+    
+            circle_marker_c25f55e27b755f33e661d37fecd9c38b.bindTooltip(
+                `<div>
+                     Jamshedpur | Risk: 4.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e07fbd0aff9471b9152c72b00cb1143 = L.circleMarker(
+                [26.2389, 73.0243],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.281818181818181, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_0500a340db5bcf89ef7f3a089bbe0809 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a994b2b8febcc57ef7c732bfebbc84fd = $(`<div id="html_a994b2b8febcc57ef7c732bfebbc84fd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Jodhpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 14.1/100 (Low)<br><b>Deaths 2022:</b> 269<br><b>Accidents 2022:</b> 684<br><b>Injured 2022:</b> 505<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_0500a340db5bcf89ef7f3a089bbe0809.setContent(html_a994b2b8febcc57ef7c732bfebbc84fd);
+            
+        
+
+        circle_marker_9e07fbd0aff9471b9152c72b00cb1143.bindPopup(popup_0500a340db5bcf89ef7f3a089bbe0809)
+        ;
+
+        
+    
+    
+            circle_marker_9e07fbd0aff9471b9152c72b00cb1143.bindTooltip(
+                `<div>
+                     Jodhpur | Risk: 14.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e297264dc76010d04744e9572afb38b = L.circleMarker(
+                [11.8745, 75.3704],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.747272727272727, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_8c10366c15b86f0b80aee7179ebcce89 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a60eb1eab379060d1ac919438efbf1c6 = $(`<div id="html_a60eb1eab379060d1ac919438efbf1c6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kannur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.2/100 (Low)<br><b>Deaths 2022:</b> 149<br><b>Accidents 2022:</b> 1,635<br><b>Injured 2022:</b> 2,118<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_8c10366c15b86f0b80aee7179ebcce89.setContent(html_a60eb1eab379060d1ac919438efbf1c6);
+            
+        
+
+        circle_marker_8e297264dc76010d04744e9572afb38b.bindPopup(popup_8c10366c15b86f0b80aee7179ebcce89)
+        ;
+
+        
+    
+    
+            circle_marker_8e297264dc76010d04744e9572afb38b.bindTooltip(
+                `<div>
+                     Kannur | Risk: 19.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5b3ba90008b29fff80beb669a0d12b3 = L.circleMarker(
+                [26.4499, 80.3319],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.794545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1766b2c7c17a51022a5d13ba78d99f48 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3f5600669e09f8658607b0685c756e50 = $(`<div id="html_3f5600669e09f8658607b0685c756e50" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Kanpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 30.7/100 (Medium)<br><b>Deaths 2022:</b> 640<br><b>Accidents 2022:</b> 1,424<br><b>Injured 2022:</b> 1,011<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_1766b2c7c17a51022a5d13ba78d99f48.setContent(html_3f5600669e09f8658607b0685c756e50);
+            
+        
+
+        circle_marker_d5b3ba90008b29fff80beb669a0d12b3.bindPopup(popup_1766b2c7c17a51022a5d13ba78d99f48)
+        ;
+
+        
+    
+    
+            circle_marker_d5b3ba90008b29fff80beb669a0d12b3.bindTooltip(
+                `<div>
+                     Kanpur | Risk: 30.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3aaa2abca7c0df06338bc2db3f2d7818 = L.circleMarker(
+                [11.2588, 75.7804],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.091818181818182, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_5484f56b263c99ceb3d7642687e7a295 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_0415dab9ac6a52ada97d5e83f005c2ae = $(`<div id="html_0415dab9ac6a52ada97d5e83f005c2ae" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kozhikode</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.0/100 (Low)<br><b>Deaths 2022:</b> 195<br><b>Accidents 2022:</b> 2,054<br><b>Injured 2022:</b> 2,164<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_5484f56b263c99ceb3d7642687e7a295.setContent(html_0415dab9ac6a52ada97d5e83f005c2ae);
+            
+        
+
+        circle_marker_3aaa2abca7c0df06338bc2db3f2d7818.bindPopup(popup_5484f56b263c99ceb3d7642687e7a295)
+        ;
+
+        
+    
+    
+            circle_marker_3aaa2abca7c0df06338bc2db3f2d7818.bindTooltip(
+                `<div>
+                     Kozhikode | Risk: 23.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f84b10701fb8d26ff3a9ad58b0a7614 = L.circleMarker(
+                [9.9312, 76.2673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_2fd79e185b320af4b30a2b9d70c84b76 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6e25cb625f5b7b185d5083015b30802a = $(`<div id="html_6e25cb625f5b7b185d5083015b30802a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kochi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 24.4/100 (Low)<br><b>Deaths 2022:</b> 156<br><b>Accidents 2022:</b> 2,432<br><b>Injured 2022:</b> 2,361<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_2fd79e185b320af4b30a2b9d70c84b76.setContent(html_6e25cb625f5b7b185d5083015b30802a);
+            
+        
+
+        circle_marker_5f84b10701fb8d26ff3a9ad58b0a7614.bindPopup(popup_2fd79e185b320af4b30a2b9d70c84b76)
+        ;
+
+        
+    
+    
+            circle_marker_5f84b10701fb8d26ff3a9ad58b0a7614.bindTooltip(
+                `<div>
+                     Kochi | Risk: 24.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a979b41bfc57cb581d816a66d7b1e1f6 = L.circleMarker(
+                [22.5726, 88.3639],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.957272727272727, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_efc20a151f23f7ff5d54fea4efee3b7c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9cc201c28df00b74a64319d9c09613b4 = $(`<div id="html_9cc201c28df00b74a64319d9c09613b4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kolkata</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.5/100 (Low)<br><b>Deaths 2022:</b> 185<br><b>Accidents 2022:</b> 1,948<br><b>Injured 2022:</b> 1,718<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_efc20a151f23f7ff5d54fea4efee3b7c.setContent(html_9cc201c28df00b74a64319d9c09613b4);
+            
+        
+
+        circle_marker_a979b41bfc57cb581d816a66d7b1e1f6.bindPopup(popup_efc20a151f23f7ff5d54fea4efee3b7c)
+        ;
+
+        
+    
+    
+            circle_marker_a979b41bfc57cb581d816a66d7b1e1f6.bindTooltip(
+                `<div>
+                     Kolkata | Risk: 21.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c90ccbae17dd3b14b5126ccd54549e0 = L.circleMarker(
+                [8.8932, 76.6141],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.165454545454546, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_8d732f4a8de91e841fdfd9b60b726c1e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_51ec40c339b62ea0204e5de57d745287 = $(`<div id="html_51ec40c339b62ea0204e5de57d745287" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kollam</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.8/100 (Low)<br><b>Deaths 2022:</b> 214<br><b>Accidents 2022:</b> 2,082<br><b>Injured 2022:</b> 2,175<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_8d732f4a8de91e841fdfd9b60b726c1e.setContent(html_51ec40c339b62ea0204e5de57d745287);
+            
+        
+
+        circle_marker_1c90ccbae17dd3b14b5126ccd54549e0.bindPopup(popup_8d732f4a8de91e841fdfd9b60b726c1e)
+        ;
+
+        
+    
+    
+            circle_marker_1c90ccbae17dd3b14b5126ccd54549e0.bindTooltip(
+                `<div>
+                     Kollam | Risk: 23.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cea1b08f5931d25fd4a859df55682d3e = L.circleMarker(
+                [25.2138, 75.8648],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.606363636363636, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_57ce739d6fc66fdf76aa6e6c412ba090 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_623cf2c12e54fcdf29db848192d36a33 = $(`<div id="html_623cf2c12e54fcdf29db848192d36a33" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kota</h4><hr style='margin:4px 0'><b>Risk Score:</b> 6.7/100 (Low)<br><b>Deaths 2022:</b> 111<br><b>Accidents 2022:</b> 444<br><b>Injured 2022:</b> 432<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_57ce739d6fc66fdf76aa6e6c412ba090.setContent(html_623cf2c12e54fcdf29db848192d36a33);
+            
+        
+
+        circle_marker_cea1b08f5931d25fd4a859df55682d3e.bindPopup(popup_57ce739d6fc66fdf76aa6e6c412ba090)
+        ;
+
+        
+    
+    
+            circle_marker_cea1b08f5931d25fd4a859df55682d3e.bindTooltip(
+                `<div>
+                     Kota | Risk: 6.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17a6fa78f192e26a231a12869ef15239 = L.circleMarker(
+                [26.8467, 80.9462],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.642727272727273, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_ad47b3b37f86eeef3bb114ac6aa50bfc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_c9058bcac65b289308d492afd75d1bef = $(`<div id="html_c9058bcac65b289308d492afd75d1bef" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Lucknow</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.1/100 (Medium)<br><b>Deaths 2022:</b> 587<br><b>Accidents 2022:</b> 1,349<br><b>Injured 2022:</b> 935<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_ad47b3b37f86eeef3bb114ac6aa50bfc.setContent(html_c9058bcac65b289308d492afd75d1bef);
+            
+        
+
+        circle_marker_17a6fa78f192e26a231a12869ef15239.bindPopup(popup_ad47b3b37f86eeef3bb114ac6aa50bfc)
+        ;
+
+        
+    
+    
+            circle_marker_17a6fa78f192e26a231a12869ef15239.bindTooltip(
+                `<div>
+                     Lucknow | Risk: 29.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cfead356c2ccce596a450edf1c9a496 = L.circleMarker(
+                [30.901, 75.8573],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.649090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_546e97a4197ba1e8540906c7e221d17a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_875dcc9ada1eb0b8333a47477faac002 = $(`<div id="html_875dcc9ada1eb0b8333a47477faac002" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Ludhiana</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.1/100 (Low)<br><b>Deaths 2022:</b> 364<br><b>Accidents 2022:</b> 467<br><b>Injured 2022:</b> 174<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_546e97a4197ba1e8540906c7e221d17a.setContent(html_875dcc9ada1eb0b8333a47477faac002);
+            
+        
+
+        circle_marker_8cfead356c2ccce596a450edf1c9a496.bindPopup(popup_546e97a4197ba1e8540906c7e221d17a)
+        ;
+
+        
+    
+    
+            circle_marker_8cfead356c2ccce596a450edf1c9a496.bindTooltip(
+                `<div>
+                     Ludhiana | Risk: 18.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5808d6ce6f6208e589a993a32a4be1b7 = L.circleMarker(
+                [9.9252, 78.1198],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.030909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_46346bbe7e4085744d6b319060ab15aa = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_098bbfc0854df75fb7dcebc83bb7215c = $(`<div id="html_098bbfc0854df75fb7dcebc83bb7215c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Madurai</h4><hr style='margin:4px 0'><b>Risk Score:</b> 11.3/100 (Low)<br><b>Deaths 2022:</b> 192<br><b>Accidents 2022:</b> 744<br><b>Injured 2022:</b> 601<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_46346bbe7e4085744d6b319060ab15aa.setContent(html_098bbfc0854df75fb7dcebc83bb7215c);
+            
+        
+
+        circle_marker_5808d6ce6f6208e589a993a32a4be1b7.bindPopup(popup_46346bbe7e4085744d6b319060ab15aa)
+        ;
+
+        
+    
+    
+            circle_marker_5808d6ce6f6208e589a993a32a4be1b7.bindTooltip(
+                `<div>
+                     Madurai | Risk: 11.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca71a5a838665919aaf639e954f50726 = L.circleMarker(
+                [11.051, 76.0711],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.382727272727273, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_4615756b50f94a5b5ce91337a88284bc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d295a1e2e106e799b8bd246f892ecedf = $(`<div id="html_d295a1e2e106e799b8bd246f892ecedf" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Malappuram</h4><hr style='margin:4px 0'><b>Risk Score:</b> 37.2/100 (Medium)<br><b>Deaths 2022:</b> 320<br><b>Accidents 2022:</b> 2,991<br><b>Injured 2022:</b> 3,499<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_4615756b50f94a5b5ce91337a88284bc.setContent(html_d295a1e2e106e799b8bd246f892ecedf);
+            
+        
+
+        circle_marker_ca71a5a838665919aaf639e954f50726.bindPopup(popup_4615756b50f94a5b5ce91337a88284bc)
+        ;
+
+        
+    
+    
+            circle_marker_ca71a5a838665919aaf639e954f50726.bindTooltip(
+                `<div>
+                     Malappuram | Risk: 37.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b0e16750e62e871784a9eef544c91a1 = L.circleMarker(
+                [28.9845, 77.7064],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.697272727272727, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_091b9e77f7c4c96098d1bd8dd89cbfc2 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_22cc084aa53613988e90994541779317 = $(`<div id="html_22cc084aa53613988e90994541779317" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Meerut</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.7/100 (Low)<br><b>Deaths 2022:</b> 345<br><b>Accidents 2022:</b> 926<br><b>Injured 2022:</b> 935<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_091b9e77f7c4c96098d1bd8dd89cbfc2.setContent(html_22cc084aa53613988e90994541779317);
+            
+        
+
+        circle_marker_0b0e16750e62e871784a9eef544c91a1.bindPopup(popup_091b9e77f7c4c96098d1bd8dd89cbfc2)
+        ;
+
+        
+    
+    
+            circle_marker_0b0e16750e62e871784a9eef544c91a1.bindTooltip(
+                `<div>
+                     Meerut | Risk: 18.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_12e5025148f5b72f6a44652044c33a97 = L.circleMarker(
+                [19.076, 72.8777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.095454545454546, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b285a289535eda6cd4327e10474b0009 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9f1bb9878431a72ff755ad728cdb070b = $(`<div id="html_9f1bb9878431a72ff755ad728cdb070b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Mumbai</h4><hr style='margin:4px 0'><b>Risk Score:</b> 34.0/100 (Medium)<br><b>Deaths 2022:</b> 371<br><b>Accidents 2022:</b> 1,895<br><b>Injured 2022:</b> 1,671<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_b285a289535eda6cd4327e10474b0009.setContent(html_9f1bb9878431a72ff755ad728cdb070b);
+            
+        
+
+        circle_marker_12e5025148f5b72f6a44652044c33a97.bindPopup(popup_b285a289535eda6cd4327e10474b0009)
+        ;
+
+        
+    
+    
+            circle_marker_12e5025148f5b72f6a44652044c33a97.bindTooltip(
+                `<div>
+                     Mumbai | Risk: 34.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1cee40d5b56ab0ed7967fe084835b5a = L.circleMarker(
+                [21.1458, 79.0882],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.724545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_51dc66b1d2a152f074dabc644cd4872f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f836f2b5929de8df5e4e5db032666b1e = $(`<div id="html_f836f2b5929de8df5e4e5db032666b1e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Nagpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.0/100 (Low)<br><b>Deaths 2022:</b> 310<br><b>Accidents 2022:</b> 1,080<br><b>Injured 2022:</b> 1,169<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_51dc66b1d2a152f074dabc644cd4872f.setContent(html_f836f2b5929de8df5e4e5db032666b1e);
+            
+        
+
+        circle_marker_a1cee40d5b56ab0ed7967fe084835b5a.bindPopup(popup_51dc66b1d2a152f074dabc644cd4872f)
+        ;
+
+        
+    
+    
+            circle_marker_a1cee40d5b56ab0ed7967fe084835b5a.bindTooltip(
+                `<div>
+                     Nagpur | Risk: 19.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_369dfa2edf8f090c6d11b83080891706 = L.circleMarker(
+                [19.9975, 73.7898],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.625454545454545, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_25afb2b92e0db65c7ab4ea7f3c76c88c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_8e1910a668a0777a7a9c8d948964b99e = $(`<div id="html_8e1910a668a0777a7a9c8d948964b99e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Nashik</h4><hr style='margin:4px 0'><b>Risk Score:</b> 17.9/100 (Low)<br><b>Deaths 2022:</b> 207<br><b>Accidents 2022:</b> 479<br><b>Injured 2022:</b> 540<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_25afb2b92e0db65c7ab4ea7f3c76c88c.setContent(html_8e1910a668a0777a7a9c8d948964b99e);
+            
+        
+
+        circle_marker_369dfa2edf8f090c6d11b83080891706.bindPopup(popup_25afb2b92e0db65c7ab4ea7f3c76c88c)
+        ;
+
+        
+    
+    
+            circle_marker_369dfa2edf8f090c6d11b83080891706.bindTooltip(
+                `<div>
+                     Nashik | Risk: 17.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45ccad42e6baa4aa80f8a3a05b278ae5 = L.circleMarker(
+                [25.5941, 85.1376],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.054545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_6cd9077368ef7bfeae07576dbff30953 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_94885eff73a74757b6872a889c510f88 = $(`<div id="html_94885eff73a74757b6872a889c510f88" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Patna</h4><hr style='margin:4px 0'><b>Risk Score:</b> 11.6/100 (Low)<br><b>Deaths 2022:</b> 198<br><b>Accidents 2022:</b> 275<br><b>Injured 2022:</b> 121<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_6cd9077368ef7bfeae07576dbff30953.setContent(html_94885eff73a74757b6872a889c510f88);
+            
+        
+
+        circle_marker_45ccad42e6baa4aa80f8a3a05b278ae5.bindPopup(popup_6cd9077368ef7bfeae07576dbff30953)
+        ;
+
+        
+    
+    
+            circle_marker_45ccad42e6baa4aa80f8a3a05b278ae5.bindTooltip(
+                `<div>
+                     Patna | Risk: 11.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_adae3d2258264d8e9d8dbf07a0a5e00d = L.circleMarker(
+                [18.5204, 73.8567],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.995454545454545, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1cca468c90f66318e7ad1079d52dfcc4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2fc3c26d7e9d750fb74446dd1de4e589 = $(`<div id="html_2fc3c26d7e9d750fb74446dd1de4e589" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Pune</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.9/100 (Low)<br><b>Deaths 2022:</b> 325<br><b>Accidents 2022:</b> 871<br><b>Injured 2022:</b> 608<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_1cca468c90f66318e7ad1079d52dfcc4.setContent(html_2fc3c26d7e9d750fb74446dd1de4e589);
+            
+        
+
+        circle_marker_adae3d2258264d8e9d8dbf07a0a5e00d.bindPopup(popup_1cca468c90f66318e7ad1079d52dfcc4)
+        ;
+
+        
+    
+    
+            circle_marker_adae3d2258264d8e9d8dbf07a0a5e00d.bindTooltip(
+                `<div>
+                     Pune | Risk: 21.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20d77df30c0917a68d6541700f8db91f = L.circleMarker(
+                [21.2514, 81.6296],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.803636363636365, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_5849d5aba1dfdcc88ada475d4f1727b4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_25f9155acc2e3bfa081df0179e38fe78 = $(`<div id="html_25f9155acc2e3bfa081df0179e38fe78" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Raipur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 30.8/100 (Medium)<br><b>Deaths 2022:</b> 583<br><b>Accidents 2022:</b> 1,911<br><b>Injured 2022:</b> 1,322<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_5849d5aba1dfdcc88ada475d4f1727b4.setContent(html_25f9155acc2e3bfa081df0179e38fe78);
+            
+        
+
+        circle_marker_20d77df30c0917a68d6541700f8db91f.bindPopup(popup_5849d5aba1dfdcc88ada475d4f1727b4)
+        ;
+
+        
+    
+    
+            circle_marker_20d77df30c0917a68d6541700f8db91f.bindTooltip(
+                `<div>
+                     Raipur | Risk: 30.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1cab80fa87dd6980791a88236eb06da2 = L.circleMarker(
+                [22.3039, 70.8022],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.775454545454545, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_407c3706883aba2993e87f179579105a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_13ce9118096adc70595a22d1f3582326 = $(`<div id="html_13ce9118096adc70595a22d1f3582326" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Rajkot</h4><hr style='margin:4px 0'><b>Risk Score:</b> 8.5/100 (Low)<br><b>Deaths 2022:</b> 150<br><b>Accidents 2022:</b> 498<br><b>Injured 2022:</b> 422<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_407c3706883aba2993e87f179579105a.setContent(html_13ce9118096adc70595a22d1f3582326);
+            
+        
+
+        circle_marker_1cab80fa87dd6980791a88236eb06da2.bindPopup(popup_407c3706883aba2993e87f179579105a)
+        ;
+
+        
+    
+    
+            circle_marker_1cab80fa87dd6980791a88236eb06da2.bindTooltip(
+                `<div>
+                     Rajkot | Risk: 8.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75a62748c72e2ce748806146827c12c9 = L.circleMarker(
+                [34.0837, 74.7973],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.339090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_3853b26f74edd54081ce7edbd0017d66 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f2f80783907a87f9b498f4f3bde6e735 = $(`<div id="html_f2f80783907a87f9b498f4f3bde6e735" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Srinagar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 3.7/100 (Low)<br><b>Deaths 2022:</b> 53<br><b>Accidents 2022:</b> 426<br><b>Injured 2022:</b> 438<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_3853b26f74edd54081ce7edbd0017d66.setContent(html_f2f80783907a87f9b498f4f3bde6e735);
+            
+        
+
+        circle_marker_75a62748c72e2ce748806146827c12c9.bindPopup(popup_3853b26f74edd54081ce7edbd0017d66)
+        ;
+
+        
+    
+    
+            circle_marker_75a62748c72e2ce748806146827c12c9.bindTooltip(
+                `<div>
+                     Srinagar | Risk: 3.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42ccb97535d49f89ec024b7c880e3ebc = L.circleMarker(
+                [21.1702, 72.8311],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.3954545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_762ec6702ca7742a739dab00398f49fe = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a87bf1f410bb4546cc663bea1ce52081 = $(`<div id="html_a87bf1f410bb4546cc663bea1ce52081" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Surat</h4><hr style='margin:4px 0'><b>Risk Score:</b> 15.3/100 (Low)<br><b>Deaths 2022:</b> 293<br><b>Accidents 2022:</b> 683<br><b>Injured 2022:</b> 553<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_762ec6702ca7742a739dab00398f49fe.setContent(html_a87bf1f410bb4546cc663bea1ce52081);
+            
+        
+
+        circle_marker_42ccb97535d49f89ec024b7c880e3ebc.bindPopup(popup_762ec6702ca7742a739dab00398f49fe)
+        ;
+
+        
+    
+    
+            circle_marker_42ccb97535d49f89ec024b7c880e3ebc.bindTooltip(
+                `<div>
+                     Surat | Risk: 15.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be076890abeda5a434e54478db40348d = L.circleMarker(
+                [8.5241, 76.9366],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.826363636363636, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_232f542a25c09cba68443267b1513f4c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_86281c84da6d4435534584f69264de8c = $(`<div id="html_86281c84da6d4435534584f69264de8c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Thiruvananthapuram</h4><hr style='margin:4px 0'><b>Risk Score:</b> 20.1/100 (Low)<br><b>Deaths 2022:</b> 171<br><b>Accidents 2022:</b> 1,825<br><b>Injured 2022:</b> 1,911<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_232f542a25c09cba68443267b1513f4c.setContent(html_86281c84da6d4435534584f69264de8c);
+            
+        
+
+        circle_marker_be076890abeda5a434e54478db40348d.bindPopup(popup_232f542a25c09cba68443267b1513f4c)
+        ;
+
+        
+    
+    
+            circle_marker_be076890abeda5a434e54478db40348d.bindTooltip(
+                `<div>
+                     Thiruvananthapuram | Risk: 20.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18c489643990c64471215d6dd8e72976 = L.circleMarker(
+                [10.5276, 76.2144],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.476363636363637, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_a89853e4579cbe17a4a28a94fb73f78a = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d9a76fe46e2778fb1c583ac45f4606e0 = $(`<div id="html_d9a76fe46e2778fb1c583ac45f4606e0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Thrissur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 27.2/100 (Medium)<br><b>Deaths 2022:</b> 210<br><b>Accidents 2022:</b> 2,374<br><b>Injured 2022:</b> 2,711<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_a89853e4579cbe17a4a28a94fb73f78a.setContent(html_d9a76fe46e2778fb1c583ac45f4606e0);
+            
+        
+
+        circle_marker_18c489643990c64471215d6dd8e72976.bindPopup(popup_a89853e4579cbe17a4a28a94fb73f78a)
+        ;
+
+        
+    
+    
+            circle_marker_18c489643990c64471215d6dd8e72976.bindTooltip(
+                `<div>
+                     Thrissur | Risk: 27.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_075d1b35b7c9ed039c2710aca9780582 = L.circleMarker(
+                [10.7905, 78.7047],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.842727272727273, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_bbbc800d14de2c872a1e888687805b08 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3e66f9626264940b8f7aded382ff60b2 = $(`<div id="html_3e66f9626264940b8f7aded382ff60b2" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Tiruchirappalli</h4><hr style='margin:4px 0'><b>Risk Score:</b> 9.3/100 (Low)<br><b>Deaths 2022:</b> 149<br><b>Accidents 2022:</b> 542<br><b>Injured 2022:</b> 624<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_bbbc800d14de2c872a1e888687805b08.setContent(html_3e66f9626264940b8f7aded382ff60b2);
+            
+        
+
+        circle_marker_075d1b35b7c9ed039c2710aca9780582.bindPopup(popup_bbbc800d14de2c872a1e888687805b08)
+        ;
+
+        
+    
+    
+            circle_marker_075d1b35b7c9ed039c2710aca9780582.bindTooltip(
+                `<div>
+                     Tiruchirappalli | Risk: 9.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91fed40a4d82cb0e41dbf003f88040fb = L.circleMarker(
+                [22.3072, 73.1812],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.899090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_38c440fb85402aa89a2c0c1dc3823ec6 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_ed5464872fb23af008b718729d3c24bb = $(`<div id="html_ed5464872fb23af008b718729d3c24bb" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Vadodara</h4><hr style='margin:4px 0'><b>Risk Score:</b> 9.9/100 (Low)<br><b>Deaths 2022:</b> 181<br><b>Accidents 2022:</b> 478<br><b>Injured 2022:</b> 378<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_38c440fb85402aa89a2c0c1dc3823ec6.setContent(html_ed5464872fb23af008b718729d3c24bb);
+            
+        
+
+        circle_marker_91fed40a4d82cb0e41dbf003f88040fb.bindPopup(popup_38c440fb85402aa89a2c0c1dc3823ec6)
+        ;
+
+        
+    
+    
+            circle_marker_91fed40a4d82cb0e41dbf003f88040fb.bindTooltip(
+                `<div>
+                     Vadodara | Risk: 9.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba48fa553009b9c900bae3c383752f27 = L.circleMarker(
+                [25.3176, 82.9739],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.834545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_7b25294eb131e4de54e9b7cd5db582c1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6037279d3fd972cabf1e1ce7f3542ee6 = $(`<div id="html_6037279d3fd972cabf1e1ce7f3542ee6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Varanasi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 20.2/100 (Low)<br><b>Deaths 2022:</b> 294<br><b>Accidents 2022:</b> 539<br><b>Injured 2022:</b> 330<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_7b25294eb131e4de54e9b7cd5db582c1.setContent(html_6037279d3fd972cabf1e1ce7f3542ee6);
+            
+        
+
+        circle_marker_ba48fa553009b9c900bae3c383752f27.bindPopup(popup_7b25294eb131e4de54e9b7cd5db582c1)
+        ;
+
+        
+    
+    
+            circle_marker_ba48fa553009b9c900bae3c383752f27.bindTooltip(
+                `<div>
+                     Varanasi | Risk: 20.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de884d075fcd8096ff7ffe46c637815d = L.circleMarker(
+                [16.5062, 80.648],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.29, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_90b82b6ddf492df7c9473aa9581cd781 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_14151fed822698328fc9afd65f23a283 = $(`<div id="html_14151fed822698328fc9afd65f23a283" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Vijayawada</h4><hr style='margin:4px 0'><b>Risk Score:</b> 25.2/100 (Medium)<br><b>Deaths 2022:</b> 418<br><b>Accidents 2022:</b> 1,543<br><b>Injured 2022:</b> 1,367<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_90b82b6ddf492df7c9473aa9581cd781.setContent(html_14151fed822698328fc9afd65f23a283);
+            
+        
+
+        circle_marker_de884d075fcd8096ff7ffe46c637815d.bindPopup(popup_90b82b6ddf492df7c9473aa9581cd781)
+        ;
+
+        
+    
+    
+            circle_marker_de884d075fcd8096ff7ffe46c637815d.bindTooltip(
+                `<div>
+                     Vijayawada | Risk: 25.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_078cc267cd8beafccf893fe33d89099d = L.circleMarker(
+                [17.6868, 83.2185],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.096363636363636, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_112ea75467c081a0234593b7ce3a73d7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_7fca952125b6fe3a74c3c3928edb48b4 = $(`<div id="html_7fca952125b6fe3a74c3c3928edb48b4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Visakhapatnam</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.1/100 (Low)<br><b>Deaths 2022:</b> 358<br><b>Accidents 2022:</b> 1,531<br><b>Injured 2022:</b> 1,288<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_112ea75467c081a0234593b7ce3a73d7.setContent(html_7fca952125b6fe3a74c3c3928edb48b4);
+            
+        
+
+        circle_marker_078cc267cd8beafccf893fe33d89099d.bindPopup(popup_112ea75467c081a0234593b7ce3a73d7)
+        ;
+
+        
+    
+    
+            circle_marker_078cc267cd8beafccf893fe33d89099d.bindTooltip(
+                `<div>
+                     Visakhapatnam | Risk: 23.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2ca885f43a5d0310773a0ef42118283 = L.circleMarker(
+                [11.6643, 78.146],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.725454545454546, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_386db372d8ed230b18df01a52798340c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f72495a9c9feeac884c834fd2cb1a292 = $(`<div id="html_f72495a9c9feeac884c834fd2cb1a292" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Salem</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.0/100 (Low)<br><b>Deaths 2022:</b> 329<br><b>Accidents 2022:</b> 658<br><b>Injured 2022:</b> 886<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_386db372d8ed230b18df01a52798340c.setContent(html_f72495a9c9feeac884c834fd2cb1a292);
+            
+        
+
+        circle_marker_d2ca885f43a5d0310773a0ef42118283.bindPopup(popup_386db372d8ed230b18df01a52798340c)
+        ;
+
+        
+    
+    
+            circle_marker_d2ca885f43a5d0310773a0ef42118283.bindTooltip(
+                `<div>
+                     Salem | Risk: 19.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf2ce863e2f4f87d1836dd983d1e4eb7 = L.circleMarker(
+                [11.1085, 77.3411],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.710909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_ddf7fe82d0d6a7650e7d6c205db79a44 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d563ff5f34251c64bec9e3a62640fca2 = $(`<div id="html_d563ff5f34251c64bec9e3a62640fca2" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Tiruppur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.8/100 (Medium)<br><b>Deaths 2022:</b> 312<br><b>Accidents 2022:</b> 1,842<br><b>Injured 2022:</b> 2,146<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_ddf7fe82d0d6a7650e7d6c205db79a44.setContent(html_d563ff5f34251c64bec9e3a62640fca2);
+            
+        
+
+        circle_marker_bf2ce863e2f4f87d1836dd983d1e4eb7.bindPopup(popup_ddf7fe82d0d6a7650e7d6c205db79a44)
+        ;
+
+        
+    
+    
+            circle_marker_bf2ce863e2f4f87d1836dd983d1e4eb7.bindTooltip(
+                `<div>
+                     Tiruppur | Risk: 29.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_576cba00d14a273b0cac022cb7c6c853 = L.circleMarker(
+                [11.341, 77.7172],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.34090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b1d532093bbb2e6a0fea5acfdaf7d53e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_734a1455e486e8b3d768e74c8b28cc71 = $(`<div id="html_734a1455e486e8b3d768e74c8b28cc71" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Erode</h4><hr style='margin:4px 0'><b>Risk Score:</b> 25.8/100 (Medium)<br><b>Deaths 2022:</b> 276<br><b>Accidents 2022:</b> 1,526<br><b>Injured 2022:</b> 1,804<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_b1d532093bbb2e6a0fea5acfdaf7d53e.setContent(html_734a1455e486e8b3d768e74c8b28cc71);
+            
+        
+
+        circle_marker_576cba00d14a273b0cac022cb7c6c853.bindPopup(popup_b1d532093bbb2e6a0fea5acfdaf7d53e)
+        ;
+
+        
+    
+    
+            circle_marker_576cba00d14a273b0cac022cb7c6c853.bindTooltip(
+                `<div>
+                     Erode | Risk: 25.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b88aa2e6c00754e2c03cc675efd1df76 = L.circleMarker(
+                [12.9165, 79.1325],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.498181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_750846a8b6d6def13c8f187f34ed1b2b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_405be0019ee82603b40a056130ed7b38 = $(`<div id="html_405be0019ee82603b40a056130ed7b38" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Vellore</h4><hr style='margin:4px 0'><b>Risk Score:</b> 27.5/100 (Medium)<br><b>Deaths 2022:</b> 291<br><b>Accidents 2022:</b> 1,674<br><b>Injured 2022:</b> 1,932<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_750846a8b6d6def13c8f187f34ed1b2b.setContent(html_405be0019ee82603b40a056130ed7b38);
+            
+        
+
+        circle_marker_b88aa2e6c00754e2c03cc675efd1df76.bindPopup(popup_750846a8b6d6def13c8f187f34ed1b2b)
+        ;
+
+        
+    
+    
+            circle_marker_b88aa2e6c00754e2c03cc675efd1df76.bindTooltip(
+                `<div>
+                     Vellore | Risk: 27.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a0f83b5f34c6e8439096b686e56e8b0 = L.circleMarker(
+                [12.9141, 74.856],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.56090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_20a5ec7728c5e9b4e24d7b165de292ba = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a1647190ffaa9d2c80188c875332ede5 = $(`<div id="html_a1647190ffaa9d2c80188c875332ede5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Mangaluru</h4><hr style='margin:4px 0'><b>Risk Score:</b> 28.2/100 (Medium)<br><b>Deaths 2022:</b> 218<br><b>Accidents 2022:</b> 1,947<br><b>Injured 2022:</b> 2,263<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_20a5ec7728c5e9b4e24d7b165de292ba.setContent(html_a1647190ffaa9d2c80188c875332ede5);
+            
+        
+
+        circle_marker_3a0f83b5f34c6e8439096b686e56e8b0.bindPopup(popup_20a5ec7728c5e9b4e24d7b165de292ba)
+        ;
+
+        
+    
+    
+            circle_marker_3a0f83b5f34c6e8439096b686e56e8b0.bindTooltip(
+                `<div>
+                     Mangaluru | Risk: 28.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ff022a8404e16069e579844fe1ff8bf = L.circleMarker(
+                [12.2958, 76.6394],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.327272727272728, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1f7c8768ebb6d0e8b39f24bef0af622d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_0aa0ad13f830704b454214537d42db71 = $(`<div id="html_0aa0ad13f830704b454214537d42db71" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Mysuru</h4><hr style='margin:4px 0'><b>Risk Score:</b> 25.6/100 (Medium)<br><b>Deaths 2022:</b> 196<br><b>Accidents 2022:</b> 1,763<br><b>Injured 2022:</b> 2,018<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_1f7c8768ebb6d0e8b39f24bef0af622d.setContent(html_0aa0ad13f830704b454214537d42db71);
+            
+        
+
+        circle_marker_7ff022a8404e16069e579844fe1ff8bf.bindPopup(popup_1f7c8768ebb6d0e8b39f24bef0af622d)
+        ;
+
+        
+    
+    
+            circle_marker_7ff022a8404e16069e579844fe1ff8bf.bindTooltip(
+                `<div>
+                     Mysuru | Risk: 25.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d81d0e8f29452f67d7337f95605765f4 = L.circleMarker(
+                [15.3647, 75.124],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.677272727272728, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_e790e9a36317b7f3c385b2034ce97343 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d64dea7076a292ed7f230f78e779a07a = $(`<div id="html_d64dea7076a292ed7f230f78e779a07a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Hubballi-Dharwad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.4/100 (Medium)<br><b>Deaths 2022:</b> 287<br><b>Accidents 2022:</b> 1,934<br><b>Injured 2022:</b> 2,107<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_e790e9a36317b7f3c385b2034ce97343.setContent(html_d64dea7076a292ed7f230f78e779a07a);
+            
+        
+
+        circle_marker_d81d0e8f29452f67d7337f95605765f4.bindPopup(popup_e790e9a36317b7f3c385b2034ce97343)
+        ;
+
+        
+    
+    
+            circle_marker_d81d0e8f29452f67d7337f95605765f4.bindTooltip(
+                `<div>
+                     Hubballi-Dharwad | Risk: 29.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79ea20dd6116653285b0753b7e50154f = L.circleMarker(
+                [15.8497, 74.4977],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.164545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_d21edb1c2827ac133fb42bb5eae6b433 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2323105ba1e564e7f7eb0045c850a909 = $(`<div id="html_2323105ba1e564e7f7eb0045c850a909" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Belagavi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.8/100 (Low)<br><b>Deaths 2022:</b> 251<br><b>Accidents 2022:</b> 1,418<br><b>Injured 2022:</b> 1,639<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_d21edb1c2827ac133fb42bb5eae6b433.setContent(html_2323105ba1e564e7f7eb0045c850a909);
+            
+        
+
+        circle_marker_79ea20dd6116653285b0753b7e50154f.bindPopup(popup_d21edb1c2827ac133fb42bb5eae6b433)
+        ;
+
+        
+    
+    
+            circle_marker_79ea20dd6116653285b0753b7e50154f.bindTooltip(
+                `<div>
+                     Belagavi | Risk: 23.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a43e9c29a648aa05fa821c2a0c8ea33 = L.circleMarker(
+                [14.4644, 75.9218],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.88, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_e81f07a62d1e3398a6e36089a84a121f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a642445b157ef75fbad52662cf8e73ec = $(`<div id="html_a642445b157ef75fbad52662cf8e73ec" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Davangere</h4><hr style='margin:4px 0'><b>Risk Score:</b> 20.7/100 (Low)<br><b>Deaths 2022:</b> 214<br><b>Accidents 2022:</b> 1,187<br><b>Injured 2022:</b> 1,426<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_e81f07a62d1e3398a6e36089a84a121f.setContent(html_a642445b157ef75fbad52662cf8e73ec);
+            
+        
+
+        circle_marker_3a43e9c29a648aa05fa821c2a0c8ea33.bindPopup(popup_e81f07a62d1e3398a6e36089a84a121f)
+        ;
+
+        
+    
+    
+            circle_marker_3a43e9c29a648aa05fa821c2a0c8ea33.bindTooltip(
+                `<div>
+                     Davangere | Risk: 20.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dda3448a8c6a186c73ae53102fd08e3b = L.circleMarker(
+                [13.3379, 77.1173],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.084545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_f2198d7a8259137d86a61d38ef08e466 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_add504ce6ca0319225367d05f6e83903 = $(`<div id="html_add504ce6ca0319225367d05f6e83903" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Tumakuru</h4><hr style='margin:4px 0'><b>Risk Score:</b> 22.9/100 (Low)<br><b>Deaths 2022:</b> 238<br><b>Accidents 2022:</b> 1,364<br><b>Injured 2022:</b> 1,582<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_f2198d7a8259137d86a61d38ef08e466.setContent(html_add504ce6ca0319225367d05f6e83903);
+            
+        
+
+        circle_marker_dda3448a8c6a186c73ae53102fd08e3b.bindPopup(popup_f2198d7a8259137d86a61d38ef08e466)
+        ;
+
+        
+    
+    
+            circle_marker_dda3448a8c6a186c73ae53102fd08e3b.bindTooltip(
+                `<div>
+                     Tumakuru | Risk: 22.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bca500a05adf0acd20e0e653238d5513 = L.circleMarker(
+                [16.3008, 80.4428],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.092727272727274, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1c84d3a67c9b0adc423b2e7541c7446e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d1e23bc956846d0e67dcabbc8a46962c = $(`<div id="html_d1e23bc956846d0e67dcabbc8a46962c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Guntur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.0/100 (Low)<br><b>Deaths 2022:</b> 267<br><b>Accidents 2022:</b> 1,296<br><b>Injured 2022:</b> 1,487<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_1c84d3a67c9b0adc423b2e7541c7446e.setContent(html_d1e23bc956846d0e67dcabbc8a46962c);
+            
+        
+
+        circle_marker_bca500a05adf0acd20e0e653238d5513.bindPopup(popup_1c84d3a67c9b0adc423b2e7541c7446e)
+        ;
+
+        
+    
+    
+            circle_marker_bca500a05adf0acd20e0e653238d5513.bindTooltip(
+                `<div>
+                     Guntur | Risk: 23.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9d1dba4c1dca31bfdc819c13f2d771d4 = L.circleMarker(
+                [14.4426, 79.9865],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.912727272727272, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_27f6abe80865997f386eb35c1f151f66 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_1b4d7330539230dd08f3257817cedd36 = $(`<div id="html_1b4d7330539230dd08f3257817cedd36" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Nellore</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.0/100 (Low)<br><b>Deaths 2022:</b> 231<br><b>Accidents 2022:</b> 1,214<br><b>Injured 2022:</b> 1,356<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_27f6abe80865997f386eb35c1f151f66.setContent(html_1b4d7330539230dd08f3257817cedd36);
+            
+        
+
+        circle_marker_9d1dba4c1dca31bfdc819c13f2d771d4.bindPopup(popup_27f6abe80865997f386eb35c1f151f66)
+        ;
+
+        
+    
+    
+            circle_marker_9d1dba4c1dca31bfdc819c13f2d771d4.bindTooltip(
+                `<div>
+                     Nellore | Risk: 21.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6af6369424645b19a3641973bdbe7881 = L.circleMarker(
+                [15.8281, 78.0373],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.794545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_9c51b79ec5c03050d9a1b342610b3da8 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_c9725f91169c1db51a64ace0cf321fa7 = $(`<div id="html_c9725f91169c1db51a64ace0cf321fa7" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kurnool</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.7/100 (Low)<br><b>Deaths 2022:</b> 226<br><b>Accidents 2022:</b> 1,083<br><b>Injured 2022:</b> 1,241<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_9c51b79ec5c03050d9a1b342610b3da8.setContent(html_c9725f91169c1db51a64ace0cf321fa7);
+            
+        
+
+        circle_marker_6af6369424645b19a3641973bdbe7881.bindPopup(popup_9c51b79ec5c03050d9a1b342610b3da8)
+        ;
+
+        
+    
+    
+            circle_marker_6af6369424645b19a3641973bdbe7881.bindTooltip(
+                `<div>
+                     Kurnool | Risk: 19.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd4c8d5af6d37ab993d3f9af8ea15e37 = L.circleMarker(
+                [17.0005, 81.804],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.793636363636364, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_41bdc2272b0e07a7223a5f51988513a7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_71a91cd1d453db54064073ac74420b5e = $(`<div id="html_71a91cd1d453db54064073ac74420b5e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Rajahmundry</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.7/100 (Low)<br><b>Deaths 2022:</b> 198<br><b>Accidents 2022:</b> 1,172<br><b>Injured 2022:</b> 1,318<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_41bdc2272b0e07a7223a5f51988513a7.setContent(html_71a91cd1d453db54064073ac74420b5e);
+            
+        
+
+        circle_marker_bd4c8d5af6d37ab993d3f9af8ea15e37.bindPopup(popup_41bdc2272b0e07a7223a5f51988513a7)
+        ;
+
+        
+    
+    
+            circle_marker_bd4c8d5af6d37ab993d3f9af8ea15e37.bindTooltip(
+                `<div>
+                     Rajahmundry | Risk: 19.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d034d933733dda768843592b32beac87 = L.circleMarker(
+                [13.6288, 79.4192],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.684545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_ce533cd4735197bf8c149f9d79aaa504 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_123b8a24f8144a759b4391311aa338b5 = $(`<div id="html_123b8a24f8144a759b4391311aa338b5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Tirupati</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.5/100 (Low)<br><b>Deaths 2022:</b> 184<br><b>Accidents 2022:</b> 1,056<br><b>Injured 2022:</b> 1,274<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_ce533cd4735197bf8c149f9d79aaa504.setContent(html_123b8a24f8144a759b4391311aa338b5);
+            
+        
+
+        circle_marker_d034d933733dda768843592b32beac87.bindPopup(popup_ce533cd4735197bf8c149f9d79aaa504)
+        ;
+
+        
+    
+    
+            circle_marker_d034d933733dda768843592b32beac87.bindTooltip(
+                `<div>
+                     Tirupati | Risk: 18.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53fbba41a0546c691d938bf69ce36642 = L.circleMarker(
+                [17.9784, 79.5941],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.105454545454545, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_8b7a60a14285acb0cc56d8c60ab70640 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d33d4e4794c95fc79901d072a6bcdb3f = $(`<div id="html_d33d4e4794c95fc79901d072a6bcdb3f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Warangal</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.2/100 (Low)<br><b>Deaths 2022:</b> 243<br><b>Accidents 2022:</b> 1,389<br><b>Injured 2022:</b> 1,571<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_8b7a60a14285acb0cc56d8c60ab70640.setContent(html_d33d4e4794c95fc79901d072a6bcdb3f);
+            
+        
+
+        circle_marker_53fbba41a0546c691d938bf69ce36642.bindPopup(popup_8b7a60a14285acb0cc56d8c60ab70640)
+        ;
+
+        
+    
+    
+            circle_marker_53fbba41a0546c691d938bf69ce36642.bindTooltip(
+                `<div>
+                     Warangal | Risk: 23.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd7f6e2719ab61337906a84caa125bc6 = L.circleMarker(
+                [16.705, 74.2433],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.91, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_bfa9caad1b1ada82345537b7718ed59d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f88457bd71013c2754b6db415511ec34 = $(`<div id="html_f88457bd71013c2754b6db415511ec34" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Kolhapur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.0/100 (Low)<br><b>Deaths 2022:</b> 207<br><b>Accidents 2022:</b> 1,267<br><b>Injured 2022:</b> 1,449<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_bfa9caad1b1ada82345537b7718ed59d.setContent(html_f88457bd71013c2754b6db415511ec34);
+            
+        
+
+        circle_marker_fd7f6e2719ab61337906a84caa125bc6.bindPopup(popup_bfa9caad1b1ada82345537b7718ed59d)
+        ;
+
+        
+    
+    
+            circle_marker_fd7f6e2719ab61337906a84caa125bc6.bindTooltip(
+                `<div>
+                     Kolhapur | Risk: 21.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a93464135ce221399a52b7fccf22d2cf = L.circleMarker(
+                [17.6805, 75.9064],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.611818181818181, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_4c697a1d5db260233210801470290c85 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_88966a918d72cc8a264f56b041a42530 = $(`<div id="html_88966a918d72cc8a264f56b041a42530" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Solapur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 28.7/100 (Medium)<br><b>Deaths 2022:</b> 326<br><b>Accidents 2022:</b> 1,731<br><b>Injured 2022:</b> 1,918<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_4c697a1d5db260233210801470290c85.setContent(html_88966a918d72cc8a264f56b041a42530);
+            
+        
+
+        circle_marker_a93464135ce221399a52b7fccf22d2cf.bindPopup(popup_4c697a1d5db260233210801470290c85)
+        ;
+
+        
+    
+    
+            circle_marker_a93464135ce221399a52b7fccf22d2cf.bindTooltip(
+                `<div>
+                     Solapur | Risk: 28.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bed5afb3a873d38405288c5f10415bbc = L.circleMarker(
+                [20.9333, 77.75],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.74, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b308a3eb07d1ba76beb19acc629419ed = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_fd6ceba0259162fbc8b33f5e7ede3a0e = $(`<div id="html_fd6ceba0259162fbc8b33f5e7ede3a0e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Amravati</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.1/100 (Low)<br><b>Deaths 2022:</b> 194<br><b>Accidents 2022:</b> 1,109<br><b>Injured 2022:</b> 1,284<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_b308a3eb07d1ba76beb19acc629419ed.setContent(html_fd6ceba0259162fbc8b33f5e7ede3a0e);
+            
+        
+
+        circle_marker_bed5afb3a873d38405288c5f10415bbc.bindPopup(popup_b308a3eb07d1ba76beb19acc629419ed)
+        ;
+
+        
+    
+    
+            circle_marker_bed5afb3a873d38405288c5f10415bbc.bindTooltip(
+                `<div>
+                     Amravati | Risk: 19.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f140fb4ece83b280084a0ef55775ea47 = L.circleMarker(
+                [19.1383, 77.321],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.637272727272728, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_d7b1bc06189e98fbc2f3f71ad088311c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_8b465d82e22e2893cfa5cedd0d9c8ac3 = $(`<div id="html_8b465d82e22e2893cfa5cedd0d9c8ac3" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Nanded</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.0/100 (Low)<br><b>Deaths 2022:</b> 187<br><b>Accidents 2022:</b> 1,018<br><b>Injured 2022:</b> 1,173<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_d7b1bc06189e98fbc2f3f71ad088311c.setContent(html_8b465d82e22e2893cfa5cedd0d9c8ac3);
+            
+        
+
+        circle_marker_f140fb4ece83b280084a0ef55775ea47.bindPopup(popup_d7b1bc06189e98fbc2f3f71ad088311c)
+        ;
+
+        
+    
+    
+            circle_marker_f140fb4ece83b280084a0ef55775ea47.bindTooltip(
+                `<div>
+                     Nanded | Risk: 18.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0648bc378834d48db8e1c1c08d43e783 = L.circleMarker(
+                [16.8524, 74.5815],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.508181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_00d87bc8247f2c1c81f20a3cf982d3f5 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f4d941e7b04eb19406ed0a9926213181 = $(`<div id="html_f4d941e7b04eb19406ed0a9926213181" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Sangli</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.6/100 (Low)<br><b>Deaths 2022:</b> 163<br><b>Accidents 2022:</b> 947<br><b>Injured 2022:</b> 1,082<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_00d87bc8247f2c1c81f20a3cf982d3f5.setContent(html_f4d941e7b04eb19406ed0a9926213181);
+            
+        
+
+        circle_marker_0648bc378834d48db8e1c1c08d43e783.bindPopup(popup_00d87bc8247f2c1c81f20a3cf982d3f5)
+        ;
+
+        
+    
+    
+            circle_marker_0648bc378834d48db8e1c1c08d43e783.bindTooltip(
+                `<div>
+                     Sangli | Risk: 16.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10c5c91e2c74b2cd468d7764f7a3bd9b = L.circleMarker(
+                [21.1938, 81.3509],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.213636363636364, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_1835ec8528b1b45f1bbc847b34cc0eb7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_68fa070028c0b796dc9e9252ca2b2adc = $(`<div id="html_68fa070028c0b796dc9e9252ca2b2adc" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Bhilai</h4><hr style='margin:4px 0'><b>Risk Score:</b> 13.3/100 (Low)<br><b>Deaths 2022:</b> 145<br><b>Accidents 2022:</b> 789<br><b>Injured 2022:</b> 601<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_1835ec8528b1b45f1bbc847b34cc0eb7.setContent(html_68fa070028c0b796dc9e9252ca2b2adc);
+            
+        
+
+        circle_marker_10c5c91e2c74b2cd468d7764f7a3bd9b.bindPopup(popup_1835ec8528b1b45f1bbc847b34cc0eb7)
+        ;
+
+        
+    
+    
+            circle_marker_10c5c91e2c74b2cd468d7764f7a3bd9b.bindTooltip(
+                `<div>
+                     Bhilai | Risk: 13.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf197526d57bc370e6296e2137c1ccc3 = L.circleMarker(
+                [21.1904, 81.2849],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.3118181818181816, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_4342544abccf8f7602b367c3d6994357 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_1e581e0dac8ae66a5986ca6e9e514e47 = $(`<div id="html_1e581e0dac8ae66a5986ca6e9e514e47" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Durg</h4><hr style='margin:4px 0'><b>Risk Score:</b> 14.4/100 (Low)<br><b>Deaths 2022:</b> 152<br><b>Accidents 2022:</b> 856<br><b>Injured 2022:</b> 734<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_4342544abccf8f7602b367c3d6994357.setContent(html_1e581e0dac8ae66a5986ca6e9e514e47);
+            
+        
+
+        circle_marker_cf197526d57bc370e6296e2137c1ccc3.bindPopup(popup_4342544abccf8f7602b367c3d6994357)
+        ;
+
+        
+    
+    
+            circle_marker_cf197526d57bc370e6296e2137c1ccc3.bindTooltip(
+                `<div>
+                     Durg | Risk: 14.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbde3d497ef259224b42d32e7c166ce9 = L.circleMarker(
+                [23.3441, 85.3096],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.235454545454544, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_ffd51f1446525ed7fa7784e1679923ec = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_058769adf0c8526fef6ee9503b6da231 = $(`<div id="html_058769adf0c8526fef6ee9503b6da231" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Ranchi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 24.6/100 (Low)<br><b>Deaths 2022:</b> 347<br><b>Accidents 2022:</b> 1,475<br><b>Injured 2022:</b> 1,216<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_ffd51f1446525ed7fa7784e1679923ec.setContent(html_058769adf0c8526fef6ee9503b6da231);
+            
+        
+
+        circle_marker_bbde3d497ef259224b42d32e7c166ce9.bindPopup(popup_ffd51f1446525ed7fa7784e1679923ec)
+        ;
+
+        
+    
+    
+            circle_marker_bbde3d497ef259224b42d32e7c166ce9.bindTooltip(
+                `<div>
+                     Ranchi | Risk: 24.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c928473ee6d7263f4beb5efbcf84dd13 = L.circleMarker(
+                [23.6693, 86.1511],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.534545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_f88a729df41b92bafc985f7507320cf1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_41b0bbedf8276542c93a86078d970b4a = $(`<div id="html_41b0bbedf8276542c93a86078d970b4a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Bokaro</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.9/100 (Low)<br><b>Deaths 2022:</b> 178<br><b>Accidents 2022:</b> 934<br><b>Injured 2022:</b> 1,064<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_f88a729df41b92bafc985f7507320cf1.setContent(html_41b0bbedf8276542c93a86078d970b4a);
+            
+        
+
+        circle_marker_c928473ee6d7263f4beb5efbcf84dd13.bindPopup(popup_f88a729df41b92bafc985f7507320cf1)
+        ;
+
+        
+    
+    
+            circle_marker_c928473ee6d7263f4beb5efbcf84dd13.bindTooltip(
+                `<div>
+                     Bokaro | Risk: 16.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc277387bbc4bab8ae19552eb55acf2b = L.circleMarker(
+                [20.2961, 85.8245],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.161818181818182, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_7722db6c8344d9dc49482e884a0a98ae = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a702c861740729d455025e933e93c81e = $(`<div id="html_a702c861740729d455025e933e93c81e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Bhubaneswar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 23.8/100 (Low)<br><b>Deaths 2022:</b> 203<br><b>Accidents 2022:</b> 1,587<br><b>Injured 2022:</b> 1,746<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_7722db6c8344d9dc49482e884a0a98ae.setContent(html_a702c861740729d455025e933e93c81e);
+            
+        
+
+        circle_marker_bc277387bbc4bab8ae19552eb55acf2b.bindPopup(popup_7722db6c8344d9dc49482e884a0a98ae)
+        ;
+
+        
+    
+    
+            circle_marker_bc277387bbc4bab8ae19552eb55acf2b.bindTooltip(
+                `<div>
+                     Bhubaneswar | Risk: 23.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c782dc3116de0eff21414e060343537d = L.circleMarker(
+                [20.4625, 85.8828],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.610909090909091, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b9b5ac73d4359e39ce04f89077a78440 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_25bfb2c762d753a6107f7a6625b7a71b = $(`<div id="html_25bfb2c762d753a6107f7a6625b7a71b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Cuttack</h4><hr style='margin:4px 0'><b>Risk Score:</b> 17.7/100 (Low)<br><b>Deaths 2022:</b> 169<br><b>Accidents 2022:</b> 1,042<br><b>Injured 2022:</b> 1,196<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_b9b5ac73d4359e39ce04f89077a78440.setContent(html_25bfb2c762d753a6107f7a6625b7a71b);
+            
+        
+
+        circle_marker_c782dc3116de0eff21414e060343537d.bindPopup(popup_b9b5ac73d4359e39ce04f89077a78440)
+        ;
+
+        
+    
+    
+            circle_marker_c782dc3116de0eff21414e060343537d.bindTooltip(
+                `<div>
+                     Cuttack | Risk: 17.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ffdc569deca46c0a1e62d9e6caaf137 = L.circleMarker(
+                [26.1445, 91.7362],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.511818181818182, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_fbbda500c5f214d7f611d1835476e268 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_682f36a6b77c5b757afe69f555e741f3 = $(`<div id="html_682f36a6b77c5b757afe69f555e741f3" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Guwahati</h4><hr style='margin:4px 0'><b>Risk Score:</b> 27.6/100 (Medium)<br><b>Deaths 2022:</b> 369<br><b>Accidents 2022:</b> 1,512<br><b>Injured 2022:</b> 1,628<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_fbbda500c5f214d7f611d1835476e268.setContent(html_682f36a6b77c5b757afe69f555e741f3);
+            
+        
+
+        circle_marker_3ffdc569deca46c0a1e62d9e6caaf137.bindPopup(popup_fbbda500c5f214d7f611d1835476e268)
+        ;
+
+        
+    
+    
+            circle_marker_3ffdc569deca46c0a1e62d9e6caaf137.bindTooltip(
+                `<div>
+                     Guwahati | Risk: 27.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d7dcb0160f07a77cd54ba01aff1e2e01 = L.circleMarker(
+                [26.7271, 88.3953],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.822727272727272, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_95f1628ca8cfe1d6d803a460e61faade = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_b5d4c8148cccf83e51a13910b1422b26 = $(`<div id="html_b5d4c8148cccf83e51a13910b1422b26" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Siliguri</h4><hr style='margin:4px 0'><b>Risk Score:</b> 20.1/100 (Low)<br><b>Deaths 2022:</b> 221<br><b>Accidents 2022:</b> 1,084<br><b>Injured 2022:</b> 1,357<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_95f1628ca8cfe1d6d803a460e61faade.setContent(html_b5d4c8148cccf83e51a13910b1422b26);
+            
+        
+
+        circle_marker_d7dcb0160f07a77cd54ba01aff1e2e01.bindPopup(popup_95f1628ca8cfe1d6d803a460e61faade)
+        ;
+
+        
+    
+    
+            circle_marker_d7dcb0160f07a77cd54ba01aff1e2e01.bindTooltip(
+                `<div>
+                     Siliguri | Risk: 20.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5ec84fadf0c019b9dc5e264c7edad9b9 = L.circleMarker(
+                [23.5204, 87.3119],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.518181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_6b9508884853df09e17b378c22bcde9c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_dafd5513ed3786c65498fb1e3eef4b94 = $(`<div id="html_dafd5513ed3786c65498fb1e3eef4b94" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Durgapur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.7/100 (Low)<br><b>Deaths 2022:</b> 359<br><b>Accidents 2022:</b> 494<br><b>Injured 2022:</b> 309<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_6b9508884853df09e17b378c22bcde9c.setContent(html_dafd5513ed3786c65498fb1e3eef4b94);
+            
+        
+
+        circle_marker_5ec84fadf0c019b9dc5e264c7edad9b9.bindPopup(popup_6b9508884853df09e17b378c22bcde9c)
+        ;
+
+        
+    
+    
+            circle_marker_5ec84fadf0c019b9dc5e264c7edad9b9.bindTooltip(
+                `<div>
+                     Durgapur | Risk: 16.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8a66c464cbc6562a7f4a4710a331ce7 = L.circleMarker(
+                [31.326, 75.5762],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.8100000000000005, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_65fbb447df2008c2a296cd509e8c7e4f = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_325d3d4dd35fb2d39516d015f66f42b0 = $(`<div id="html_325d3d4dd35fb2d39516d015f66f42b0" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Jalandhar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 19.9/100 (Low)<br><b>Deaths 2022:</b> 183<br><b>Accidents 2022:</b> 1,234<br><b>Injured 2022:</b> 1,389<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_65fbb447df2008c2a296cd509e8c7e4f.setContent(html_325d3d4dd35fb2d39516d015f66f42b0);
+            
+        
+
+        circle_marker_f8a66c464cbc6562a7f4a4710a331ce7.bindPopup(popup_65fbb447df2008c2a296cd509e8c7e4f)
+        ;
+
+        
+    
+    
+            circle_marker_f8a66c464cbc6562a7f4a4710a331ce7.bindTooltip(
+                `<div>
+                     Jalandhar | Risk: 19.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3e534ebec2f2415ef0015a3dec681a6 = L.circleMarker(
+                [30.3398, 76.3869],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.512727272727273, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_0617d85ffd12c394bfb47143bdb330b8 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_34e187df19025a6bf848b19a7063c736 = $(`<div id="html_34e187df19025a6bf848b19a7063c736" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Patiala</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.6/100 (Low)<br><b>Deaths 2022:</b> 156<br><b>Accidents 2022:</b> 978<br><b>Injured 2022:</b> 1,102<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_0617d85ffd12c394bfb47143bdb330b8.setContent(html_34e187df19025a6bf848b19a7063c736);
+            
+        
+
+        circle_marker_c3e534ebec2f2415ef0015a3dec681a6.bindPopup(popup_0617d85ffd12c394bfb47143bdb330b8)
+        ;
+
+        
+    
+    
+            circle_marker_c3e534ebec2f2415ef0015a3dec681a6.bindTooltip(
+                `<div>
+                     Patiala | Risk: 16.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be564f0355f1874a51a60103f8b55ca0 = L.circleMarker(
+                [30.3165, 78.0322],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.954545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_b7cfd5adbcee6ecb98e64db5c0777200 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_742fc72c0062c3f5db41531385e40a95 = $(`<div id="html_742fc72c0062c3f5db41531385e40a95" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Dehradun</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.5/100 (Low)<br><b>Deaths 2022:</b> 203<br><b>Accidents 2022:</b> 1,357<br><b>Injured 2022:</b> 1,481<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_b7cfd5adbcee6ecb98e64db5c0777200.setContent(html_742fc72c0062c3f5db41531385e40a95);
+            
+        
+
+        circle_marker_be564f0355f1874a51a60103f8b55ca0.bindPopup(popup_b7cfd5adbcee6ecb98e64db5c0777200)
+        ;
+
+        
+    
+    
+            circle_marker_be564f0355f1874a51a60103f8b55ca0.bindTooltip(
+                `<div>
+                     Dehradun | Risk: 21.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_22a59ff0db7590e92c328bb582d95bdf = L.circleMarker(
+                [32.7266, 74.857],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.717272727272727, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_684481ee8e8429ea6da918f646f9e445 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_1ac6ba11fc2359a2ade323d4d65359fd = $(`<div id="html_1ac6ba11fc2359a2ade323d4d65359fd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Jammu</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.9/100 (Low)<br><b>Deaths 2022:</b> 185<br><b>Accidents 2022:</b> 1,118<br><b>Injured 2022:</b> 1,274<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_684481ee8e8429ea6da918f646f9e445.setContent(html_1ac6ba11fc2359a2ade323d4d65359fd);
+            
+        
+
+        circle_marker_22a59ff0db7590e92c328bb582d95bdf.bindPopup(popup_684481ee8e8429ea6da918f646f9e445)
+        ;
+
+        
+    
+    
+            circle_marker_22a59ff0db7590e92c328bb582d95bdf.bindTooltip(
+                `<div>
+                     Jammu | Risk: 18.9/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a87c46a7ea8de683d57ff33a94f8f5ca = L.circleMarker(
+                [26.4499, 74.6399],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5636363636363635, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_5ceb20f3d2d4a3773a556a8908d4659b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_fc26e1a7b5a069ed1b18a5ecc52bdd07 = $(`<div id="html_fc26e1a7b5a069ed1b18a5ecc52bdd07" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Ajmer</h4><hr style='margin:4px 0'><b>Risk Score:</b> 17.2/100 (Low)<br><b>Deaths 2022:</b> 162<br><b>Accidents 2022:</b> 1,006<br><b>Injured 2022:</b> 1,163<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_5ceb20f3d2d4a3773a556a8908d4659b.setContent(html_fc26e1a7b5a069ed1b18a5ecc52bdd07);
+            
+        
+
+        circle_marker_a87c46a7ea8de683d57ff33a94f8f5ca.bindPopup(popup_5ceb20f3d2d4a3773a556a8908d4659b)
+        ;
+
+        
+    
+    
+            circle_marker_a87c46a7ea8de683d57ff33a94f8f5ca.bindTooltip(
+                `<div>
+                     Ajmer | Risk: 17.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d323c6b8adc327c7ad3c5aaa137e2271 = L.circleMarker(
+                [27.553, 76.6346],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.4772727272727275, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_8fbe9c7fe2243b897c8f5de307433937 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2096f09494c205b927e8921d9fe6b53f = $(`<div id="html_2096f09494c205b927e8921d9fe6b53f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Alwar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 16.2/100 (Low)<br><b>Deaths 2022:</b> 174<br><b>Accidents 2022:</b> 872<br><b>Injured 2022:</b> 1,018<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_8fbe9c7fe2243b897c8f5de307433937.setContent(html_2096f09494c205b927e8921d9fe6b53f);
+            
+        
+
+        circle_marker_d323c6b8adc327c7ad3c5aaa137e2271.bindPopup(popup_8fbe9c7fe2243b897c8f5de307433937)
+        ;
+
+        
+    
+    
+            circle_marker_d323c6b8adc327c7ad3c5aaa137e2271.bindTooltip(
+                `<div>
+                     Alwar | Risk: 16.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d2070dc56511e3581b305d07958b3dd = L.circleMarker(
+                [28.0229, 73.3119],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5627272727272725, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_c6ce17ed215fb1853f19c855a11746a0 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_574ccc7a82d40c3189e18436ba8b19ed = $(`<div id="html_574ccc7a82d40c3189e18436ba8b19ed" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Bikaner</h4><hr style='margin:4px 0'><b>Risk Score:</b> 17.2/100 (Low)<br><b>Deaths 2022:</b> 188<br><b>Accidents 2022:</b> 923<br><b>Injured 2022:</b> 1,086<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_c6ce17ed215fb1853f19c855a11746a0.setContent(html_574ccc7a82d40c3189e18436ba8b19ed);
+            
+        
+
+        circle_marker_2d2070dc56511e3581b305d07958b3dd.bindPopup(popup_c6ce17ed215fb1853f19c855a11746a0)
+        ;
+
+        
+    
+    
+            circle_marker_2d2070dc56511e3581b305d07958b3dd.bindTooltip(
+                `<div>
+                     Bikaner | Risk: 17.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40bf41785dd28ea29e5e5ed1ce3621ca = L.circleMarker(
+                [27.2152, 77.4941],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.38, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_c81a0ddf17b67601d5919dd9f2d89041 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_ae0f94afd49545a44a9ea582ff02c66f = $(`<div id="html_ae0f94afd49545a44a9ea582ff02c66f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Bharatpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 15.2/100 (Low)<br><b>Deaths 2022:</b> 159<br><b>Accidents 2022:</b> 814<br><b>Injured 2022:</b> 934<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_c81a0ddf17b67601d5919dd9f2d89041.setContent(html_ae0f94afd49545a44a9ea582ff02c66f);
+            
+        
+
+        circle_marker_40bf41785dd28ea29e5e5ed1ce3621ca.bindPopup(popup_c81a0ddf17b67601d5919dd9f2d89041)
+        ;
+
+        
+    
+    
+            circle_marker_40bf41785dd28ea29e5e5ed1ce3621ca.bindTooltip(
+                `<div>
+                     Bharatpur | Risk: 15.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82865b6d82213b7dce7facfd2af95fa3 = L.circleMarker(
+                [24.5854, 73.7125],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.9763636363636365, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_adf64a688408ff4c82781e2d9a4a1395 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9937b7b6d243d016de6e2ac21dc67a22 = $(`<div id="html_9937b7b6d243d016de6e2ac21dc67a22" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Udaipur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 21.7/100 (Low)<br><b>Deaths 2022:</b> 211<br><b>Accidents 2022:</b> 1,351<br><b>Injured 2022:</b> 1,492<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_adf64a688408ff4c82781e2d9a4a1395.setContent(html_9937b7b6d243d016de6e2ac21dc67a22);
+            
+        
+
+        circle_marker_82865b6d82213b7dce7facfd2af95fa3.bindPopup(popup_adf64a688408ff4c82781e2d9a4a1395)
+        ;
+
+        
+    
+    
+            circle_marker_82865b6d82213b7dce7facfd2af95fa3.bindTooltip(
+                `<div>
+                     Udaipur | Risk: 21.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bddbe5d5786ffc20a9efbf1b3a665293 = L.circleMarker(
+                [24.5694, 80.8322],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.823636363636363, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_45115213c64420d0b070de923afd46d3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_ec3bdec68e17ced6abaf5d6f58250a3b = $(`<div id="html_ec3bdec68e17ced6abaf5d6f58250a3b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Satna</h4><hr style='margin:4px 0'><b>Risk Score:</b> 20.1/100 (Low)<br><b>Deaths 2022:</b> 249<br><b>Accidents 2022:</b> 1,082<br><b>Injured 2022:</b> 1,157<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_45115213c64420d0b070de923afd46d3.setContent(html_ec3bdec68e17ced6abaf5d6f58250a3b);
+            
+        
+
+        circle_marker_bddbe5d5786ffc20a9efbf1b3a665293.bindPopup(popup_45115213c64420d0b070de923afd46d3)
+        ;
+
+        
+    
+    
+            circle_marker_bddbe5d5786ffc20a9efbf1b3a665293.bindTooltip(
+                `<div>
+                     Satna | Risk: 20.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d74e80be6075e5c96c9d52be00b35fbd = L.circleMarker(
+                [24.5369, 81.2963],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.298181818181818, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_9610737258e1d6a0ec1567d43bca19a4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9ee33d7cbad135f42579f9c7c5dd63c7 = $(`<div id="html_9ee33d7cbad135f42579f9c7c5dd63c7" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Rewa</h4><hr style='margin:4px 0'><b>Risk Score:</b> 14.3/100 (Low)<br><b>Deaths 2022:</b> 143<br><b>Accidents 2022:</b> 768<br><b>Injured 2022:</b> 882<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_9610737258e1d6a0ec1567d43bca19a4.setContent(html_9ee33d7cbad135f42579f9c7c5dd63c7);
+            
+        
+
+        circle_marker_d74e80be6075e5c96c9d52be00b35fbd.bindPopup(popup_9610737258e1d6a0ec1567d43bca19a4)
+        ;
+
+        
+    
+    
+            circle_marker_d74e80be6075e5c96c9d52be00b35fbd.bindTooltip(
+                `<div>
+                     Rewa | Risk: 14.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9f6b3c065cbacd2a5db0812af5c6d26 = L.circleMarker(
+                [28.367, 79.4304],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.276363636363637, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_e57e475dd64746064eb8ffe88da6abdd = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3ae83969df6c70d443f1663ae54859d5 = $(`<div id="html_3ae83969df6c70d443f1663ae54859d5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Bareilly</h4><hr style='margin:4px 0'><b>Risk Score:</b> 25.0/100 (Medium)<br><b>Deaths 2022:</b> 332<br><b>Accidents 2022:</b> 1,294<br><b>Injured 2022:</b> 1,536<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_e57e475dd64746064eb8ffe88da6abdd.setContent(html_3ae83969df6c70d443f1663ae54859d5);
+            
+        
+
+        circle_marker_b9f6b3c065cbacd2a5db0812af5c6d26.bindPopup(popup_e57e475dd64746064eb8ffe88da6abdd)
+        ;
+
+        
+    
+    
+            circle_marker_b9f6b3c065cbacd2a5db0812af5c6d26.bindTooltip(
+                `<div>
+                     Bareilly | Risk: 25.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cbccd52e055b327e505b1b26392f9c45 = L.circleMarker(
+                [28.8386, 78.7733],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.525454545454545, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_4a19a7c570ba6f5148d16b396b2bcfd7 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_287d87aa26890a5c55f52149f324a9ce = $(`<div id="html_287d87aa26890a5c55f52149f324a9ce" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Moradabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 27.8/100 (Medium)<br><b>Deaths 2022:</b> 401<br><b>Accidents 2022:</b> 1,376<br><b>Injured 2022:</b> 1,621<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_4a19a7c570ba6f5148d16b396b2bcfd7.setContent(html_287d87aa26890a5c55f52149f324a9ce);
+            
+        
+
+        circle_marker_cbccd52e055b327e505b1b26392f9c45.bindPopup(popup_4a19a7c570ba6f5148d16b396b2bcfd7)
+        ;
+
+        
+    
+    
+            circle_marker_cbccd52e055b327e505b1b26392f9c45.bindTooltip(
+                `<div>
+                     Moradabad | Risk: 27.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c27f3dd85c0d914e711107f2efb68be9 = L.circleMarker(
+                [27.8974, 78.088],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.06090909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_bdf0eef9e9db632bf662651d31c22a50 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_b4aa8921401779ddb47121f41e38c656 = $(`<div id="html_b4aa8921401779ddb47121f41e38c656" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Aligarh</h4><hr style='margin:4px 0'><b>Risk Score:</b> 22.7/100 (Low)<br><b>Deaths 2022:</b> 288<br><b>Accidents 2022:</b> 1,183<br><b>Injured 2022:</b> 1,402<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_bdf0eef9e9db632bf662651d31c22a50.setContent(html_b4aa8921401779ddb47121f41e38c656);
+            
+        
+
+        circle_marker_c27f3dd85c0d914e711107f2efb68be9.bindPopup(popup_bdf0eef9e9db632bf662651d31c22a50)
+        ;
+
+        
+    
+    
+            circle_marker_c27f3dd85c0d914e711107f2efb68be9.bindTooltip(
+                `<div>
+                     Aligarh | Risk: 22.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76641819d7e6932d10e90913524f82ec = L.circleMarker(
+                [26.7606, 83.3732],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9a825", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.677272727272728, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_341d6f405d865a21e7b2509a6a46f336 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e23ea0586811cfdde5c7569e91365a77 = $(`<div id="html_e23ea0586811cfdde5c7569e91365a77" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#f9a825'>Gorakhpur</h4><hr style='margin:4px 0'><b>Risk Score:</b> 29.4/100 (Medium)<br><b>Deaths 2022:</b> 426<br><b>Accidents 2022:</b> 1,469<br><b>Injured 2022:</b> 1,738<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_341d6f405d865a21e7b2509a6a46f336.setContent(html_e23ea0586811cfdde5c7569e91365a77);
+            
+        
+
+        circle_marker_76641819d7e6932d10e90913524f82ec.bindPopup(popup_341d6f405d865a21e7b2509a6a46f336)
+        ;
+
+        
+    
+    
+            circle_marker_76641819d7e6932d10e90913524f82ec.bindTooltip(
+                `<div>
+                     Gorakhpur | Risk: 29.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4b7fdab0b836789751593a7eed041941 = L.circleMarker(
+                [25.4484, 78.5685],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.674545454545455, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_52c2a8e65d596ab08b08480c56f3944b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_5f8e897a35a49f5ad15c5f405c7d9651 = $(`<div id="html_5f8e897a35a49f5ad15c5f405c7d9651" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Jhansi</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.4/100 (Low)<br><b>Deaths 2022:</b> 219<br><b>Accidents 2022:</b> 986<br><b>Injured 2022:</b> 1,087<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_52c2a8e65d596ab08b08480c56f3944b.setContent(html_5f8e897a35a49f5ad15c5f405c7d9651);
+            
+        
+
+        circle_marker_4b7fdab0b836789751593a7eed041941.bindPopup(popup_52c2a8e65d596ab08b08480c56f3944b)
+        ;
+
+        
+    
+    
+            circle_marker_4b7fdab0b836789751593a7eed041941.bindTooltip(
+                `<div>
+                     Jhansi | Risk: 18.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f72536d2d8244dc159d170165640f190 = L.circleMarker(
+                [27.4924, 77.6737],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.004545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_502c59f4f8d6c39cbec21d96d8eb6d59 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d527fb9a0a1aeb804f6030ba5535dc93 = $(`<div id="html_d527fb9a0a1aeb804f6030ba5535dc93" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Mathura</h4><hr style='margin:4px 0'><b>Risk Score:</b> 22.1/100 (Low)<br><b>Deaths 2022:</b> 315<br><b>Accidents 2022:</b> 1,024<br><b>Injured 2022:</b> 1,267<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_502c59f4f8d6c39cbec21d96d8eb6d59.setContent(html_d527fb9a0a1aeb804f6030ba5535dc93);
+            
+        
+
+        circle_marker_f72536d2d8244dc159d170165640f190.bindPopup(popup_502c59f4f8d6c39cbec21d96d8eb6d59)
+        ;
+
+        
+    
+    
+            circle_marker_f72536d2d8244dc159d170165640f190.bindTooltip(
+                `<div>
+                     Mathura | Risk: 22.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81aaa9c6ecd57a70a6e9ec91f9cb670f = L.circleMarker(
+                [27.1591, 78.3957],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.233636363636363, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_fa6935d531380e022b2eb42d9453cbdc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2eb0e8ebdb919ab4dc4cee14aa9fe33c = $(`<div id="html_2eb0e8ebdb919ab4dc4cee14aa9fe33c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Firozabad</h4><hr style='margin:4px 0'><b>Risk Score:</b> 13.6/100 (Low)<br><b>Deaths 2022:</b> 132<br><b>Accidents 2022:</b> 743<br><b>Injured 2022:</b> 816<br><hr style='margin:4px 0'><b>Data Source:</b> OpenCity Only</div></div>`)[0];
+                popup_fa6935d531380e022b2eb42d9453cbdc.setContent(html_2eb0e8ebdb919ab4dc4cee14aa9fe33c);
+            
+        
+
+        circle_marker_81aaa9c6ecd57a70a6e9ec91f9cb670f.bindPopup(popup_fa6935d531380e022b2eb42d9453cbdc)
+        ;
+
+        
+    
+    
+            circle_marker_81aaa9c6ecd57a70a6e9ec91f9cb670f.bindTooltip(
+                `<div>
+                     Firozabad | Risk: 13.6/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0a21fd1f213f8f5962bbc5fc7d84673 = L.circleMarker(
+                [23.6833, 86.9667],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.673636363636364, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_052dee5223d67be0202a86b0aaf2abef = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_1eb2a9fd25d5624edb030f4c9109f708 = $(`<div id="html_1eb2a9fd25d5624edb030f4c9109f708" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Asansol</h4><hr style='margin:4px 0'><b>Risk Score:</b> 18.4/100 (Low)<br><b>Deaths 2022:</b> 365<br><b>Accidents 2022:</b> 497<br><b>Injured 2022:</b> 308<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_052dee5223d67be0202a86b0aaf2abef.setContent(html_1eb2a9fd25d5624edb030f4c9109f708);
+            
+        
+
+        circle_marker_b0a21fd1f213f8f5962bbc5fc7d84673.bindPopup(popup_052dee5223d67be0202a86b0aaf2abef)
+        ;
+
+        
+    
+    
+            circle_marker_b0a21fd1f213f8f5962bbc5fc7d84673.bindTooltip(
+                `<div>
+                     Asansol | Risk: 18.4/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_05ea8a70af3a725a188e8b61a1ba204c = L.circleMarker(
+                [19.3919, 72.8397],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e7d32", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.824545454545454, "stroke": true, "weight": 1.5}
+            ).addTo(map_e2b1fbedce4285be161cba414f9efa13);
+        
+    
+        var popup_fb3b755a97c10ddffe23bbef34208384 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e03edc2abda2a5047ced70e68b93ff31 = $(`<div id="html_e03edc2abda2a5047ced70e68b93ff31" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;min-width:220px'><h4 style='margin:0;color:#2e7d32'>Vasai Virar</h4><hr style='margin:4px 0'><b>Risk Score:</b> 9.1/100 (Low)<br><b>Deaths 2022:</b> 165<br><b>Accidents 2022:</b> 342<br><b>Injured 2022:</b> 213<br><hr style='margin:4px 0'><b>Data Source:</b> Both Sources</div></div>`)[0];
+                popup_fb3b755a97c10ddffe23bbef34208384.setContent(html_e03edc2abda2a5047ced70e68b93ff31);
+            
+        
+
+        circle_marker_05ea8a70af3a725a188e8b61a1ba204c.bindPopup(popup_fb3b755a97c10ddffe23bbef34208384)
+        ;
+
+        
+    
+    
+            circle_marker_05ea8a70af3a725a188e8b61a1ba204c.bindTooltip(
+                `<div>
+                     Vasai Virar | Risk: 9.1/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

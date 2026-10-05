@@ -1,0 +1,1 @@
+["deaths_2022", "injured_2022", "log_deaths", "temperature_c", "humidity_pct", "wind_speed_ms", "feels_like_c", "weather_encoded", "is_high_weather_risk", "is_dbscan_hotspot", "kmeans_cluster"]
